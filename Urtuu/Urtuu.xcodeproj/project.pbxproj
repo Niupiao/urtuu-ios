@@ -12,7 +12,9 @@
 		1C3307791B46E6B100224322 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C3307781B46E6B100224322 /* Images.xcassets */; };
 		1C33077C1B46E6B100224322 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C33077A1B46E6B100224322 /* LaunchScreen.xib */; };
 		1C3307881B46E6B100224322 /* UrtuuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3307871B46E6B100224322 /* UrtuuTests.swift */; };
-		1C3307971B47086800224322 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3307961B47086800224322 /* RootViewController.swift */; };
+		1C784D751B4AF1690054CB9B /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C784D731B4AF1690054CB9B /* BuyViewController.swift */; };
+		1C784D7C1B4B30D40054CB9B /* NavigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C784D7B1B4B30D40054CB9B /* NavigationTableViewCell.swift */; };
+		1C784D7E1B4B30E10054CB9B /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C784D7D1B4B30E10054CB9B /* ImageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,9 @@
 		1C3307811B46E6B100224322 /* UrtuuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrtuuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C3307861B46E6B100224322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C3307871B46E6B100224322 /* UrtuuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrtuuTests.swift; sourceTree = "<group>"; };
-		1C3307961B47086800224322 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		1C784D731B4AF1690054CB9B /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
+		1C784D7B1B4B30D40054CB9B /* NavigationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTableViewCell.swift; sourceTree = "<group>"; };
+		1C784D7D1B4B30E10054CB9B /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 		1C3307931B47081100224322 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1C784D7B1B4B30D40054CB9B /* NavigationTableViewCell.swift */,
+				1C784D7D1B4B30E10054CB9B /* ImageTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -124,7 +130,7 @@
 		1C3307941B47081B00224322 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1C3307961B47086800224322 /* RootViewController.swift */,
+				1C784D731B4AF1690054CB9B /* BuyViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -236,8 +242,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C3307971B47086800224322 /* RootViewController.swift in Sources */,
 				1C3307721B46E6B100224322 /* AppDelegate.swift in Sources */,
+				1C784D7E1B4B30E10054CB9B /* ImageTableViewCell.swift in Sources */,
+				1C784D751B4AF1690054CB9B /* BuyViewController.swift in Sources */,
+				1C784D7C1B4B30D40054CB9B /* NavigationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

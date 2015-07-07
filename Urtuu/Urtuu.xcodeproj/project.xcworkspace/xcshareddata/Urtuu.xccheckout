@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>65D32EE0-E81E-4DB0-87A3-052EC8F6511E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Urtuu</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DFDC2AAFE476B53764B1AE01040FAB5DD4CE4D4F</key>
+		<string>github.com:Niupiao/urtuu-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Urtuu/Urtuu.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DFDC2AAFE476B53764B1AE01040FAB5DD4CE4D4F</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:Niupiao/urtuu-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DFDC2AAFE476B53764B1AE01040FAB5DD4CE4D4F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DFDC2AAFE476B53764B1AE01040FAB5DD4CE4D4F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Urtuu</string>
+		</dict>
+	</array>
+</dict>
+</plist>
