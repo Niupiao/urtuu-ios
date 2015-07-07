@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1C3307721B46E6B100224322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3307711B46E6B100224322 /* AppDelegate.swift */; };
-		1C3307741B46E6B100224322 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3307731B46E6B100224322 /* ViewController.swift */; };
 		1C3307771B46E6B100224322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C3307751B46E6B100224322 /* Main.storyboard */; };
 		1C3307791B46E6B100224322 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C3307781B46E6B100224322 /* Images.xcassets */; };
 		1C33077C1B46E6B100224322 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C33077A1B46E6B100224322 /* LaunchScreen.xib */; };
 		1C3307881B46E6B100224322 /* UrtuuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3307871B46E6B100224322 /* UrtuuTests.swift */; };
+		1C784D751B4AF1690054CB9B /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C784D731B4AF1690054CB9B /* BuyViewController.swift */; };
+		1C784D7C1B4B30D40054CB9B /* NavigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C784D7B1B4B30D40054CB9B /* NavigationTableViewCell.swift */; };
+		1C784D7E1B4B30E10054CB9B /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C784D7D1B4B30E10054CB9B /* ImageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +31,15 @@
 		1C33076C1B46E6B100224322 /* Urtuu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Urtuu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C3307701B46E6B100224322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C3307711B46E6B100224322 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1C3307731B46E6B100224322 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1C3307761B46E6B100224322 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C3307781B46E6B100224322 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1C33077B1B46E6B100224322 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1C3307811B46E6B100224322 /* UrtuuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrtuuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C3307861B46E6B100224322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C3307871B46E6B100224322 /* UrtuuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrtuuTests.swift; sourceTree = "<group>"; };
+		1C784D731B4AF1690054CB9B /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
+		1C784D7B1B4B30D40054CB9B /* NavigationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTableViewCell.swift; sourceTree = "<group>"; };
+		1C784D7D1B4B30E10054CB9B /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +81,10 @@
 		1C33076E1B46E6B100224322 /* Urtuu */ = {
 			isa = PBXGroup;
 			children = (
+				1C3307951B47082500224322 /* Models */,
+				1C3307941B47081B00224322 /* Controllers */,
+				1C3307931B47081100224322 /* Views */,
 				1C3307711B46E6B100224322 /* AppDelegate.swift */,
-				1C3307731B46E6B100224322 /* ViewController.swift */,
 				1C3307751B46E6B100224322 /* Main.storyboard */,
 				1C3307781B46E6B100224322 /* Images.xcassets */,
 				1C33077A1B46E6B100224322 /* LaunchScreen.xib */,
@@ -110,6 +116,30 @@
 				1C3307861B46E6B100224322 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1C3307931B47081100224322 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1C784D7B1B4B30D40054CB9B /* NavigationTableViewCell.swift */,
+				1C784D7D1B4B30E10054CB9B /* ImageTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1C3307941B47081B00224322 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C784D731B4AF1690054CB9B /* BuyViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1C3307951B47082500224322 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +242,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C3307741B46E6B100224322 /* ViewController.swift in Sources */,
 				1C3307721B46E6B100224322 /* AppDelegate.swift in Sources */,
+				1C784D7E1B4B30E10054CB9B /* ImageTableViewCell.swift in Sources */,
+				1C784D751B4AF1690054CB9B /* BuyViewController.swift in Sources */,
+				1C784D7C1B4B30D40054CB9B /* NavigationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +441,7 @@
 				1C33078D1B46E6B100224322 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C33078E1B46E6B100224322 /* Build configuration list for PBXNativeTarget "UrtuuTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +450,7 @@
 				1C3307901B46E6B100224322 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
