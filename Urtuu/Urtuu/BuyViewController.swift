@@ -79,7 +79,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
     
     func sectionHeaderTapped(recognizer: UITapGestureRecognizer){
         
-        println("tap works")
+        //println("tap works")
         
         var indexPath : NSIndexPath = NSIndexPath(forRow: 0, inSection:(recognizer.view?.tag as Int!)!)
         if indexPath.row == 0 {
@@ -109,5 +109,17 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    //MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let tableCell = sender as! NavigationTableViewCell
+        let indexPath = tableView.indexPathForCell(tableCell)
+        let title = tableCell.navigationLabel.text
+        
+        let catVC = segue.destinationViewController as! CategoryViewController
+        catVC.title = title
+        
     }
 }
