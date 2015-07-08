@@ -99,6 +99,8 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mv3-RR-9Yh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4dv-rT-o59"/>
+                                    <barButtonItem image="list" id="liK-xI-DS2"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="zad-Yj-s0o"/>
                                     <barButtonItem image="grid" id="pSe-B3-Lk0"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xjO-rF-sg9"/>
@@ -278,6 +280,7 @@
     </scenes>
     <resources>
         <image name="grid" width="25" height="25"/>
+        <image name="list" width="25" height="25"/>
         <image name="placeholder" width="4000" height="3072"/>
         <image name="shop" width="25" height="25"/>
     </resources>
