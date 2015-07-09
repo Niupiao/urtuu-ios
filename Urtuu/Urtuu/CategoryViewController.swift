@@ -66,7 +66,10 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
         let width = collectionView.frame.width / 2.1
-        let height = collectionView.frame.height / 2.1
+        var height: CGFloat!
+        height = collectionView.frame.height > 323.0 ? collectionView.frame.height / 2.1 : collectionView.frame.height / 1.5
+        
+        //println(collectionView.frame.height)
         
         return CGSizeMake(width, height)
     }
