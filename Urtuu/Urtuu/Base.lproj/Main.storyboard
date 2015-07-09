@@ -266,6 +266,7 @@
                                             <outlet property="priceLabel" destination="lga-yy-tc5" id="JtM-aP-cZc"/>
                                             <outlet property="ratingLabel" destination="zsZ-l2-ab8" id="da0-UY-ZMq"/>
                                             <outlet property="titleLabel" destination="PLZ-w2-Di6" id="6KT-AB-4iQ"/>
+                                            <segue destination="dbI-AC-eNI" kind="show" id="sWc-aC-eoV"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -319,6 +320,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15g-Hm-i3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3325.5" y="-2083"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jaq-Nk-lM5">
+            <objects>
+                <viewController id="dbI-AC-eNI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="63t-eT-XN3"/>
+                        <viewControllerLayoutGuide type="bottom" id="csz-vh-9g5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EgP-Am-VUB">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tXM-4g-ZZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4098" y="-2262"/>
         </scene>
     </scenes>
     <resources>

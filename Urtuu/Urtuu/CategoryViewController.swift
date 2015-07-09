@@ -13,16 +13,21 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var collectionView: UICollectionView!
     
     let itemCellIdentifier = "itemCollectionViewCell"
-    var items = [ ["title":"iPhone", "price": "840", "rating":"Great phone"]]
+    
+    var itemsList: ItemsList!
+    var items: Array<Item>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        items.append(["title":"iPhone", "price": "740", "rating":"Great phone"])
-        items.append(["title":"iPhone", "price": "640", "rating":"Great phone"])
-        items.append(["title":"iPhone", "price": "540", "rating":"Great phone"])
-        items.append(["title":"iPhone", "price": "440", "rating":"Great phone"])
-        items.append(["title":"iPhone", "price": "340", "rating":"Great phone"])
+        itemsList = ItemsList.itemsList
+        
+        items = itemsList.itemsArray
+        
+        for i in 1...5 {
+            items.append(Item())
+        }
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -44,21 +49,13 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(itemCellIdentifier, forIndexPath: indexPath) as! ItemCollectionViewCell
         
-        cell.title = items[indexPath.row]["title"]
-        cell.price = (items[indexPath.row]["price"]! as NSString).doubleValue
+        let item = items[indexPath.row]
         
-        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "imageDoubleTapped:")
-        doubleTapRecognizer.numberOfTapsRequired = 2
-        cell.addGestureRecognizer(doubleTapRecognizer)
+        cell.title = item.title
+        cell.price = item.price
+        cell.rating = item.rating
         
         return cell
-    }
-    
-    func imageDoubleTapped(recognizer: UITapGestureRecognizer){
-        //println("double tapping works")
-        let cell = recognizer.view as! ItemCollectionViewCell
-        cell.likeButton.setImage(cell.liked, forState: .Normal)
-        cell.itemLiked = true
     }
     
     // MARK: - Collection View Delegate Flow Layout Methods

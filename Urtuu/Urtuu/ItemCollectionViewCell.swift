@@ -36,10 +36,20 @@ class ItemCollectionViewCell: UICollectionViewCell {
         get {
             return (priceLabel.text! as NSString).doubleValue
         }
-        
         set(newPrice) {
             if newPrice != price {
-                priceLabel.text = "$ " + String(format: "%.1f", newPrice)
+                priceLabel.text = "$ " + String(format: "%.2f", newPrice)
+            }
+        }
+    }
+    
+    var rating: String! {
+        get {
+            return ratingLabel.text
+        }
+        set(newRating) {
+            if newRating != rating {
+                ratingLabel.text = newRating
             }
         }
     }
