@@ -47,7 +47,18 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         cell.title = items[indexPath.row]["title"]
         cell.price = (items[indexPath.row]["price"]! as NSString).doubleValue
         
+        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "imageDoubleTapped:")
+        doubleTapRecognizer.numberOfTapsRequired = 2
+        cell.addGestureRecognizer(doubleTapRecognizer)
+        
         return cell
+    }
+    
+    func imageDoubleTapped(recognizer: UITapGestureRecognizer){
+        //println("double tapping works")
+        let cell = recognizer.view as! ItemCollectionViewCell
+        cell.likeButton.setImage(cell.liked, forState: .Normal)
+        cell.itemLiked = true
     }
     
     // MARK: - Collection View Delegate Flow Layout Methods
