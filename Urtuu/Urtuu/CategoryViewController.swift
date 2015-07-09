@@ -11,11 +11,14 @@ import UIKit
 class CategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var listButton: UIBarButtonItem!
+    @IBOutlet weak var collectionViewButton: UIBarButtonItem!
     
     let itemCellIdentifier = "itemCollectionViewCell"
     
     var itemsList: ItemsList!
     var items: Array<Item>!
+    var collectionViewHidden: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +28,9 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         items = itemsList.itemsArray
         
         for i in 1...5 {
-            items.append(Item())
+            let item = Item()
+            item.price = Double(i)*29.49
+            items.append(item)
         }
         
         collectionView.dataSource = self
@@ -38,6 +43,27 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func sortButtonPressed(sender: UIBarButtonItem) {
+        let sortController = UIAlertController(title: "Sort", message: nil, preferredStyle: .ActionSheet)
+        
+        let sortByPriceAscn = UIAlertAction(title: "Price: Low to High", style: .Default, handler: { action in
+            self.items.sort() { $0.price < $1.price }
+            self.collectionView.reloadData()
+        })
+        
+        let sortByPriceDesc = UIAlertAction(title: "Price: High to Low", style: .Default, handler: {action in
+            self.items.sort() { $0.price > $1.price }
+            self.collectionView.reloadData()
+        })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        sortController.addAction(sortByPriceAscn)
+        sortController.addAction(sortByPriceDesc)
+        sortController.addAction(cancel)
+        presentViewController(sortController, animated: true, completion: nil)
     }
     
     // MARK: - Collection View Data Source Methods
