@@ -8,13 +8,17 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var listButton: UIBarButtonItem!
     @IBOutlet weak var collectionViewButton: UIBarButtonItem!
+    @IBOutlet weak var gridButton: UIBarButtonItem!
     
-    let itemCellIdentifier = "itemCollectionViewCell"
+    
+    let itemCollectionCellIdentifier = "itemCollectionCell"
+    let itemTableCellIdentifier = "itemTableCell"
     
     var itemsList: ItemsList!
     var items: Array<Item>!
@@ -35,6 +39,11 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.hidden = collectionViewHidden
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.hidden = !collectionViewHidden
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
@@ -50,12 +59,20 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         
         let sortByPriceAscn = UIAlertAction(title: "Price: Low to High", style: .Default, handler: { action in
             self.items.sort() { $0.price < $1.price }
-            self.collectionView.reloadData()
+            if self.collectionViewHidden {
+                self.tableView.reloadData()
+            } else {
+                self.collectionView.reloadData()
+            }
         })
         
         let sortByPriceDesc = UIAlertAction(title: "Price: High to Low", style: .Default, handler: {action in
             self.items.sort() { $0.price > $1.price }
-            self.collectionView.reloadData()
+            if self.collectionViewHidden {
+                self.tableView.reloadData()
+            } else {
+                self.collectionView.reloadData()
+            }
         })
         
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -66,14 +83,37 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         presentViewController(sortController, animated: true, completion: nil)
     }
     
+    
+    @IBAction func listViewPressed(sender: UIBarButtonItem) {
+        if !collectionViewHidden {
+            collectionViewHidden = !collectionViewHidden
+            collectionView.hidden = collectionViewHidden
+            tableView.hidden = !collectionViewHidden
+            tableView.reloadData()
+        }
+    }
+    
+    @IBAction func gridViewPressed(sender: UIBarButtonItem) {
+        if collectionViewHidden {
+            collectionViewHidden = !collectionViewHidden
+            collectionView.hidden = collectionViewHidden
+            tableView.hidden = !collectionViewHidden
+            collectionView.reloadData()
+        }
+    }
+    
     // MARK: - Collection View Data Source Methods
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return collectionViewHidden ? 0 : 1
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(itemCellIdentifier, forIndexPath: indexPath) as! ItemCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(itemCollectionCellIdentifier, forIndexPath: indexPath) as! ItemCollectionViewCell
         
         let item = items[indexPath.row]
         
@@ -95,5 +135,34 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         //println(collectionView.frame.height)
         
         return CGSizeMake(width, height)
+    }
+    
+    // MARK: - Table View Data Source Methods
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return collectionViewHidden ? 1 : 0
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(itemTableCellIdentifier, forIndexPath: indexPath) as! ItemTableViewCell
+        
+        let item = items[indexPath.row]
+        
+        cell.title = item.title
+        cell.price = item.price
+        cell.rating = item.rating
+        cell.itemPic = item.image
+        
+        return cell
+    }
+    
+    // MARK: - Table View Delegate Methods
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return tableView.frame.height / 1.1
     }
 }
