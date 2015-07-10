@@ -1,14 +1,14 @@
 //
-//  ItemCollectionViewCell.swift
+//  ItemTableViewCell.swift
 //  Urtuu
 //
-//  Created by Mohamed Soussi on 7/7/15.
+//  Created by Mohamed Soussi on 7/9/15.
 //  Copyright (c) 2015 Niupiao. All rights reserved.
 //
 
 import UIKit
 
-class ItemCollectionViewCell: UICollectionViewCell {
+class ItemTableViewCell: UITableViewCell {
     
     let liked = UIImage(named: "like-filled.png")
     let unliked = UIImage(named: "like.ong")
@@ -16,8 +16,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var itemImage: UIImageView!
     
     var itemLiked: Bool = false
     
@@ -53,7 +53,16 @@ class ItemCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-
+    
+    var itemPic: UIImage! {
+        get {
+            return itemImage.image!
+        }
+        set(newImage){
+            itemImage.image = newImage
+        }
+    }
+    
     @IBAction func likePressed(sender: UIButton) {
         if(!itemLiked){
             likeButton.setImage(liked, forState: .Normal)
@@ -65,17 +74,11 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let unliked = UIImage(named: "like.png")
+        // Initialization code
         likeButton.setImage(itemLiked  ? liked : unliked, forState: .Normal)
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
     }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
 }
