@@ -155,7 +155,7 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         cell.title = item.title
         cell.price = item.price
         cell.rating = item.rating
-        cell.itemPic = item.image
+        cell.itemPic = item.mainImage
         
         return cell
     }
@@ -164,5 +164,27 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return tableView.frame.height / 1.1
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "fromCollectionCell" {
+            let cell = sender as! ItemCollectionViewCell
+            let indexPath = collectionView.indexPathForCell(cell)!
+            
+            let detailVC = segue.destinationViewController as! ItemDetailViewController
+            detailVC.itemSelected = items[indexPath.row]
+            detailVC.title = items[indexPath.row].title
+        }
+        if segue.identifier == "fromTableCell" {
+            let cell = sender as! ItemTableViewCell
+            let indexPath = tableView.indexPathForCell(cell)!
+            
+            let detailVC = segue.destinationViewController as! ItemDetailViewController
+            detailVC.itemSelected = items[indexPath.row]
+            detailVC.title = items[indexPath.row].title
+        }
+
     }
 }

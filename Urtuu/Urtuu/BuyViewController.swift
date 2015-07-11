@@ -21,6 +21,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,6 +44,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
         let headerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 1.0 * self.view.frame.height / 3.0))
         
         let imageViewer = UIImageView(frame: CGRectMake(0, 0, tableView.frame.width, headerView.frame.height))
+        imageViewer.contentMode = .ScaleAspectFill
         imageViewer.image = images[section]
         headerView.addSubview(imageViewer)
         

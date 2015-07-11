@@ -24,11 +24,11 @@
             </objects>
             <point key="canvasLocation" x="721.875" y="-1184.1549295774646"/>
         </scene>
-        <!--Buy-->
+        <!--   Buy-->
         <scene sceneID="3sy-EZ-mFx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nSe-Tq-QzD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Buy" image="shop" id="xh7-TZ-3do"/>
+                    <tabBarItem key="tabBarItem" title="   Buy" image="buy" id="xh7-TZ-3do"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="u4N-9v-nJs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -78,7 +78,9 @@
                             <outlet property="delegate" destination="cMK-GN-V4s" id="MBo-fW-HW0"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Buy" id="ggi-1H-aGu"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Anx-WV-eow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -278,7 +280,7 @@
                                             <outlet property="priceLabel" destination="lga-yy-tc5" id="JtM-aP-cZc"/>
                                             <outlet property="ratingLabel" destination="zsZ-l2-ab8" id="da0-UY-ZMq"/>
                                             <outlet property="titleLabel" destination="PLZ-w2-Di6" id="6KT-AB-4iQ"/>
-                                            <segue destination="dbI-AC-eNI" kind="show" id="sWc-aC-eoV"/>
+                                            <segue destination="dbI-AC-eNI" kind="show" identifier="fromCollectionCell" id="sWc-aC-eoV"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -429,7 +431,7 @@
                                             <outlet property="priceLabel" destination="8jv-dg-DT2" id="qYO-hg-Lzc"/>
                                             <outlet property="ratingLabel" destination="qag-Fp-xy9" id="3DP-Ae-6Ba"/>
                                             <outlet property="titleLabel" destination="DdL-Rm-Yvq" id="mbt-Oj-lBi"/>
-                                            <segue destination="dbI-AC-eNI" kind="show" id="JoW-Yu-PWz"/>
+                                            <segue destination="dbI-AC-eNI" kind="show" identifier="fromTableCell" id="JoW-Yu-PWz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -508,19 +510,147 @@
             </objects>
             <point key="canvasLocation" x="3325.5" y="-2083"/>
         </scene>
-        <!--View Controller-->
+        <!--Item Detail View Controller-->
         <scene sceneID="jaq-Nk-lM5">
             <objects>
-                <viewController id="dbI-AC-eNI" sceneMemberID="viewController">
+                <viewController id="dbI-AC-eNI" customClass="ItemDetailViewController" customModule="Urtuu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="63t-eT-XN3"/>
                         <viewControllerLayoutGuide type="bottom" id="csz-vh-9g5"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EgP-Am-VUB">
+                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="EgP-Am-VUB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjL-pe-T3l">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="lqG-ja-d1J"/>
+                                    <barButtonItem systemItem="action" id="96c-2y-iDP"/>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYc-E6-vl6">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIM-xb-tO7">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <pageControl clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JE1-7O-Y6P">
+                                        <rect key="frame" x="-19" y="-18" width="39" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="cMA-lJ-JZj"/>
+                                        </constraints>
+                                        <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="cMA-lJ-JZj"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="cMA-lJ-JZj"/>
+                                            </mask>
+                                        </variation>
+                                    </pageControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="287" id="6rI-L1-dtM"/>
+                                    <constraint firstItem="JE1-7O-Y6P" firstAttribute="top" secondItem="TIM-xb-tO7" secondAttribute="top" constant="403" id="VO4-Ds-ZcE">
+                                        <variation key="widthClass=compact" constant="242"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="287" id="XwQ-Qv-qGp"/>
+                                    <constraint firstAttribute="bottom" secondItem="JE1-7O-Y6P" secondAttribute="bottom" constant="8" id="csq-Pn-WB1">
+                                        <variation key="widthClass=compact" constant="8"/>
+                                    </constraint>
+                                    <constraint firstAttribute="centerX" secondItem="JE1-7O-Y6P" secondAttribute="centerX" constant="-0.5" id="d5d-Gp-Dbl"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="JE1-7O-Y6P"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="6rI-L1-dtM"/>
+                                        <exclude reference="XwQ-Qv-qGp"/>
+                                        <exclude reference="VO4-Ds-ZcE"/>
+                                        <exclude reference="csq-Pn-WB1"/>
+                                        <exclude reference="d5d-Gp-Dbl"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="108" width="400" height="287"/>
+                                    <mask key="subviews">
+                                        <include reference="JE1-7O-Y6P"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="6rI-L1-dtM"/>
+                                        <exclude reference="XwQ-Qv-qGp"/>
+                                        <include reference="VO4-Ds-ZcE"/>
+                                        <include reference="csq-Pn-WB1"/>
+                                        <include reference="d5d-Gp-Dbl"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TIM-xb-tO7" firstAttribute="leading" secondItem="EgP-Am-VUB" secondAttribute="leading" id="0co-xM-OES"/>
+                            <constraint firstItem="CYc-E6-vl6" firstAttribute="top" secondItem="63t-eT-XN3" secondAttribute="bottom" constant="11" id="0ks-od-G7o"/>
+                            <constraint firstItem="TIM-xb-tO7" firstAttribute="top" secondItem="gjL-pe-T3l" secondAttribute="bottom" id="1Jl-LN-gwE"/>
+                            <constraint firstItem="gjL-pe-T3l" firstAttribute="top" secondItem="63t-eT-XN3" secondAttribute="bottom" id="4Oi-Ln-zAP"/>
+                            <constraint firstItem="CYc-E6-vl6" firstAttribute="leading" secondItem="EgP-Am-VUB" secondAttribute="leadingMargin" id="7g1-e0-Fc2"/>
+                            <constraint firstAttribute="trailing" secondItem="gjL-pe-T3l" secondAttribute="trailing" id="A3f-A3-YCY"/>
+                            <constraint firstAttribute="trailing" secondItem="TIM-xb-tO7" secondAttribute="trailing" id="LAc-tt-Bmm"/>
+                            <constraint firstItem="CYc-E6-vl6" firstAttribute="centerY" secondItem="gjL-pe-T3l" secondAttribute="centerY" constant="-2" id="OTS-mB-VzG"/>
+                            <constraint firstItem="gjL-pe-T3l" firstAttribute="leading" secondItem="EgP-Am-VUB" secondAttribute="leading" id="OvF-uF-okJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CYc-E6-vl6" secondAttribute="trailing" id="nrN-Rx-XDG"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="gjL-pe-T3l"/>
+                                <exclude reference="CYc-E6-vl6"/>
+                                <exclude reference="TIM-xb-tO7"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="4Oi-Ln-zAP"/>
+                                <exclude reference="A3f-A3-YCY"/>
+                                <exclude reference="OvF-uF-okJ"/>
+                                <exclude reference="0ks-od-G7o"/>
+                                <exclude reference="7g1-e0-Fc2"/>
+                                <exclude reference="OTS-mB-VzG"/>
+                                <exclude reference="nrN-Rx-XDG"/>
+                                <exclude reference="0co-xM-OES"/>
+                                <exclude reference="1Jl-LN-gwE"/>
+                                <exclude reference="LAc-tt-Bmm"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="gjL-pe-T3l"/>
+                                <include reference="CYc-E6-vl6"/>
+                                <include reference="TIM-xb-tO7"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="4Oi-Ln-zAP"/>
+                                <include reference="A3f-A3-YCY"/>
+                                <include reference="OvF-uF-okJ"/>
+                                <include reference="0ks-od-G7o"/>
+                                <include reference="7g1-e0-Fc2"/>
+                                <include reference="OTS-mB-VzG"/>
+                                <include reference="nrN-Rx-XDG"/>
+                                <include reference="0co-xM-OES"/>
+                                <include reference="1Jl-LN-gwE"/>
+                                <include reference="LAc-tt-Bmm"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="JE1-7O-Y6P" id="5QE-ZA-lnb"/>
+                        <outlet property="scrollView" destination="TIM-xb-tO7" id="6oU-cG-fHb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tXM-4g-ZZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -528,13 +658,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="buy" width="25" height="25"/>
         <image name="grid" width="25" height="25"/>
         <image name="like" width="50" height="50"/>
         <image name="list" width="25" height="25"/>
         <image name="placeholder" width="4000" height="3072"/>
-        <image name="shop" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sWc-aC-eoV"/>
+        <segue reference="JoW-Yu-PWz"/>
     </inferredMetricsTieBreakers>
 </document>

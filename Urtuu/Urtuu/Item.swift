@@ -14,9 +14,10 @@ class Item {
     var id: Int = 0
     var title: String = "iPhone"
     var price: Double = 649.99
-    var image: UIImage = UIImage(named: "placeholder.png")!
+    var mainImage: UIImage = UIImage(named: "placeholder.png")!
     var categories: [String]! = []
     var rating: String = "Stellar"
+    var images: [UIImage] = [UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!]
     
     init(){
         
