@@ -8,35 +8,61 @@
 
 import UIKit
 
-class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
+class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var pageControl: UIPageControl!
     
     var itemSelected: Item!
-    var pageViews: [UIImageView?] = []
-    var pageCount: Int!
+    var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-        pageCount = itemSelected.images.count
-        pageControl.currentPage = 0
-        pageControl.numberOfPages = pageCount
+        descriptionLabel.text = itemSelected.description.capitalizedString
         
-        for _ in 0..<pageCount {
-            pageViews.append(nil)
-        }
-        
-        scrollView.frame.size = CGSizeMake(view.frame.width, view.frame.height/2.0)
-        let pageSize = scrollView.frame.size
-        scrollView.contentSize = CGSizeMake(pageSize.width * CGFloat(pageCount), pageSize.height)
-        loadVisiblePages()
         scrollView.delegate = self
+        tableView.dataSource = self
+        
+        var imageViewer = UIImageView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height / 2.0))
+        imageViewer.image = itemSelected.images[1]
+        imageViewer.contentMode = .ScaleAspectFill
+        
+        var firstDetailView = UIView(frame: CGRectMake(0.0, imageViewer.frame.height, view.frame.width, 50))
+        firstDetailView.layer.borderColor = UIColor.grayColor().CGColor
+        firstDetailView.layer.borderWidth = 0.5
+        
+        var itemLabel = UILabel()
+        itemLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        itemLabel.font = UIFont(name: "HelveticaNeue-Light", size: 14.0) ?? UIFont()
+        itemLabel.text = itemSelected.title
+        firstDetailView.addSubview(itemLabel)
+        
+        var priceLabel = UILabel()
+        priceLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        priceLabel.font = UIFont(name: "Helvetica", size: 14.0) ?? UIFont()
+        priceLabel.text = "$" + String(format:"%.2f", itemSelected.price)
+        priceLabel.textAlignment = .Right
+        firstDetailView.addSubview(priceLabel)
+        
+        //adding constraints to itemLabel
+        let views = Dictionary(dictionaryLiteral: ("itemLabel",itemLabel),("priceLabel",priceLabel))
+        let hConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|-8-[itemLabel]-[priceLabel]-8-|", options: nil, metrics: nil, views: views)
+        firstDetailView.addConstraints(hConstraint)
+        
+        let itemVContraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[itemLabel]|", options: nil, metrics: nil, views: views)
+        firstDetailView.addConstraints(itemVContraints)
+        
+        let priceVConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[priceLabel]|", options: nil, metrics: nil, views: views)
+        firstDetailView.addConstraints(priceVConstraints)
+        
+        //tableView.frame.origin = CGPoint(x: 0.0, y: imageViewer.frame.height)
+        
+        scrollView.addSubview(imageViewer)
+        scrollView.addSubview(firstDetailView)
+        //scrollView.addSubview(tableView)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,71 +78,15 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate {
         tabBarController?.tabBar.hidden = false
     }
     
-
-    // MARK: - Helper Functions
+    // MARK: - Table View Data Source Methods
     
-    func loadPage(page: Int){
-        if page < 0 || page >= pageCount {
-            // page outside of range, do nothing
-            return
-        }
-        
-        if let pageView = pageViews[page] {
-            // page already loaded, do nothing
-            return
-        } else {
-            var frame = scrollView.bounds
-            frame.origin.x = frame.size.width * CGFloat(page)
-            frame.origin.y = 0.0
-            
-            let newPageView = UIImageView(image: itemSelected.images[page])
-            newPageView.contentMode = .ScaleToFill
-            newPageView.frame = frame
-            scrollView.addSubview(newPageView)
-            
-            pageViews[page] = newPageView
-        }
-        
-        
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
     }
     
-    func purgePage(page: Int){
-        if page < 0 || page >= pageCount {
-            // page outside of range, do nothing
-            return
-        }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
         
-        if let pageView = pageViews[page]{
-            pageView.removeFromSuperview()
-            pageViews[page] = nil
-        }
-    }
-    
-    func loadVisiblePages(){
-        let pageWidth = scrollView.frame.size.width
-        let page = Int(floor(scrollView.contentOffset.x * 2.0 + pageWidth)/(2.0 * pageWidth))
-        
-        pageControl.currentPage = page
-        
-        let firstPage = page - 1
-        let lastPage = page + 1
-        
-        for var index = 0; index < firstPage; index++ {
-            purgePage(index)
-        }
-        
-        for index in firstPage ... lastPage {
-            loadPage(index)
-        }
-        
-        for var index = lastPage + 1; index < itemSelected.images.count; index++ {
-            purgePage(index)
-        }
-    }
-    
-    // MARK: - Scroll View Delegate Methods
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        loadVisiblePages()
+        return cell
     }
 }

@@ -12,12 +12,13 @@ import UIKit
 class Item {
     
     var id: Int = 0
-    var title: String = "iPhone"
+    var title: String = "iPhone 6"
     var price: Double = 649.99
-    var mainImage: UIImage = UIImage(named: "placeholder.png")!
+    var mainImage: UIImage = UIImage(named: "placeholder")!
     var categories: [String]! = []
     var rating: String = "Stellar"
-    var images: [UIImage] = [UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!,UIImage(named: "placeholder.ong")!]
+    var images: [UIImage] = [UIImage(named: "placeholder")!,UIImage(named: "iphone1")!,UIImage(named: "iphone2")!]
+    var description: String = "the best phone money can buy"
     
     init(){
         
