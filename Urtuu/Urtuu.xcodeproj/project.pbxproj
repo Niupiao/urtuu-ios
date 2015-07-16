@@ -12,6 +12,8 @@
 		1C3307791B46E6B100224322 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C3307781B46E6B100224322 /* Images.xcassets */; };
 		1C33077C1B46E6B100224322 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C33077A1B46E6B100224322 /* LaunchScreen.xib */; };
 		1C3307881B46E6B100224322 /* UrtuuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3307871B46E6B100224322 /* UrtuuTests.swift */; };
+		1C4FD0A61B573B9C00A0A121 /* SellerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4FD0A41B573B9C00A0A121 /* SellerCell.swift */; };
+		1C4FD0A71B573B9C00A0A121 /* SellerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4FD0A51B573B9C00A0A121 /* SellerCell.xib */; };
 		1C784D751B4AF1690054CB9B /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C784D731B4AF1690054CB9B /* BuyViewController.swift */; };
 		1C784D7C1B4B30D40054CB9B /* NavigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C784D7B1B4B30D40054CB9B /* NavigationTableViewCell.swift */; };
 		1C784DB21B4C5B370054CB9B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C784DB11B4C5B370054CB9B /* CategoryViewController.swift */; };
@@ -43,6 +45,8 @@
 		1C3307811B46E6B100224322 /* UrtuuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrtuuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C3307861B46E6B100224322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C3307871B46E6B100224322 /* UrtuuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrtuuTests.swift; sourceTree = "<group>"; };
+		1C4FD0A41B573B9C00A0A121 /* SellerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellerCell.swift; sourceTree = "<group>"; };
+		1C4FD0A51B573B9C00A0A121 /* SellerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SellerCell.xib; sourceTree = "<group>"; };
 		1C784D731B4AF1690054CB9B /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		1C784D7B1B4B30D40054CB9B /* NavigationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTableViewCell.swift; sourceTree = "<group>"; };
 		1C784DB11B4C5B370054CB9B /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				1C9027A11B4F71BD0039E390 /* ItemTableViewCell.swift */,
 				1CCD0C711B54984900821C30 /* ItemDetailCell.swift */,
 				1CCD0C721B54984900821C30 /* ItemDetailCell.xib */,
+				1C4FD0A41B573B9C00A0A121 /* SellerCell.swift */,
+				1C4FD0A51B573B9C00A0A121 /* SellerCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C3307771B46E6B100224322 /* Main.storyboard in Resources */,
+				1C4FD0A71B573B9C00A0A121 /* SellerCell.xib in Resources */,
 				1CCD0C741B54984900821C30 /* ItemDetailCell.xib in Resources */,
 				1C33077C1B46E6B100224322 /* LaunchScreen.xib in Resources */,
 				1C3307791B46E6B100224322 /* Images.xcassets in Resources */,
@@ -261,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4FD0A61B573B9C00A0A121 /* SellerCell.swift in Sources */,
 				1C784DB41B4C614B0054CB9B /* ItemCollectionViewCell.swift in Sources */,
 				1C784DB21B4C5B370054CB9B /* CategoryViewController.swift in Sources */,
 				1CEAC0DF1B50314E00DDE13C /* ItemDetailViewController.swift in Sources */,

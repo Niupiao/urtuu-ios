@@ -20,8 +20,10 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
     var firstDetailView: UIView!
     var scrollView: UIScrollView!
     var contentView: UIView!
+    var sellerCell = UITableView()
     
     let detailCell = "ItemDetailCell"
+    let sellerCellIdentifier = "SellerCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +41,18 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         scrollView.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+        sellerCell.dataSource = self
+        sellerCell.delegate = self
         
-        //registering cell class
+        //registering cell class for tableView
         tableView.registerClass(ItemDetailCell.self, forCellReuseIdentifier: detailCell)
         let nib = UINib(nibName: "ItemDetailCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: detailCell)
+        
+        //registering cell class for sellerCell
+        sellerCell.registerClass(SellerCell.self, forCellReuseIdentifier: sellerCellIdentifier)
+        let sellerCellNib = UINib(nibName: "SellerCell", bundle: nil)
+        sellerCell.registerNib(sellerCellNib, forCellReuseIdentifier: sellerCellIdentifier)
         
         //setting up imageViewer
         imageViewer = UIImageView()
@@ -76,6 +85,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
         firstDetailView.setTranslatesAutoresizingMaskIntoConstraints(false)
         imageViewer.setTranslatesAutoresizingMaskIntoConstraints(false)
+        sellerCell.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         //adding horizontal constraints to itemLabel and pricelabel
         let views = Dictionary(dictionaryLiteral: ("itemLabel",itemLabel),("priceLabel",priceLabel))
@@ -92,18 +102,21 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         contentView.addSubview(imageViewer)
         contentView.addSubview(firstDetailView)
         contentView.addSubview(tableView)
+        contentView.addSubview(sellerCell)
         
         //master views dictionary
-        let masterViews = Dictionary(dictionaryLiteral: ("tableView",tableView),("firstDetailView",firstDetailView),("imageViewer",imageViewer),("contentView",contentView))
+        let masterViews = Dictionary(dictionaryLiteral: ("tableView",tableView),("firstDetailView",firstDetailView),("imageViewer",imageViewer),("contentView",contentView),("sellerCell",sellerCell))
         
         //setting up horizontal and vertical constrains for imageviewer, firstdetailview, and tableView
         let hTblConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-4-[tableView(<=contentView)]-4-|", options: nil, metrics: nil, views: masterViews)
         let hImgConstrains = NSLayoutConstraint.constraintsWithVisualFormat("H:|[imageViewer(==contentView)]|", options: nil, metrics: nil, views: masterViews)
+        let hSlrCellConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[sellerCell(==contentView)]|", options: nil, metrics: nil, views: masterViews)
         let hFrstDtlConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[firstDetailView(==contentView)]|", options: nil, metrics: nil, views: masterViews)
-        let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[imageViewer(==300)]-0-[firstDetailView(==50)]-4-[tableView(==140)]", options: nil, metrics: nil, views: masterViews)
+        let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[imageViewer(==300)]-0-[firstDetailView(==50)]-0-[sellerCell(==92)]-4-[tableView(==175)]", options: nil, metrics: nil, views: masterViews)
         
         //adding constraints to scrollView
         contentView.addConstraints(hTblConstraints)
+        contentView.addConstraints(hSlrCellConstraints)
         contentView.addConstraints(hImgConstrains)
         contentView.addConstraints(hFrstDtlConstraints)
         contentView.addConstraints(vConstraints)
@@ -114,12 +127,8 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
     }
     
     override func viewDidLayoutSubviews() {
-        let height = tableView.frame.height + imageViewer.frame.height + firstDetailView.frame.height
-        scrollView.contentSize = CGSizeMake(contentView.frame.width, height)
-        
-        println(scrollView.contentSize.height)
-        println(contentView.frame.height)
-        
+        let height = tableView.frame.height + imageViewer.frame.height + firstDetailView.frame.height + sellerCell.frame.height
+        scrollView.contentSize = CGSizeMake(contentView.frame.width, height)        
         scrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         let scvHConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[scrollView]|", options: nil, metrics: nil, views: ["scrollView":scrollView])
@@ -147,22 +156,46 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
     // MARK: - Table View Delegate Methods
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return CGFloat(35)
+        return tableView == self.tableView ? CGFloat(35) : CGFloat(92)
     }
     
     // MARK: - Table View Data Source Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return tableView == self.tableView ? 5 : 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(detailCell) as! ItemDetailCell
-        
-        cell.detailTitle = "Detail:"
-        cell.detail = "Some detail."
-        
-        return cell
+        if tableView == self.tableView {
+            let cell = self.tableView.dequeueReusableCellWithIdentifier(detailCell) as! ItemDetailCell
+            
+            switch(indexPath.row) {
+            case 0:
+                cell.detailTitle = "Category:"
+                cell.detail = "Smartphone"
+            case 1:
+                cell.detailTitle = "Brand:"
+                cell.detail = "Apple"
+            case 2:
+                cell.detailTitle = "Payment:"
+                cell.detail = "Credit, Debit, Cash"
+            case 3:
+                cell.detailTitle = "Ships From:"
+                cell.detail = "Ulaanbataar"
+            default:
+                cell.detailTitle = "Ships Within:"
+                cell.detail = "1-2 Hours"
+            }
+            
+            return cell
+        } else {
+            let cell = sellerCell.dequeueReusableCellWithIdentifier(sellerCellIdentifier) as! SellerCell
+            
+            cell.sellerName = "Elon Musk"
+            cell.profilePic = UIImage(named: "elon")!
+            cell.numberOfReviews.text = "77 reviews"
+            
+            return cell
+        }
     }
-    
 }

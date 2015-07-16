@@ -563,7 +563,7 @@
                                     <barButtonItem title="Buy" id="7WS-QG-cWn">
                                         <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
-                                    <barButtonItem width="12" style="plain" systemItem="fixedSpace" id="Ti8-kA-7hF"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Fuj-zg-wXE"/>
                                 </items>
                                 <variation key="default">
                                     <mask key="constraints">
