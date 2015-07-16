@@ -18,7 +18,7 @@ class ItemDetailCell: UITableViewCell {
             return detailTitleLabel.text!
         }
         set(newTitle){
-            detailTitleLabel.text = newTitle
+            detailTitleLabel.text = "  " + newTitle
         }
     }
     
