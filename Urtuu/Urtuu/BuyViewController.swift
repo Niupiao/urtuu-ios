@@ -121,6 +121,6 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
         
         let catVC = segue.destinationViewController as! CategoryViewController
         catVC.title = title
-        
+        catVC.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
     }
 }

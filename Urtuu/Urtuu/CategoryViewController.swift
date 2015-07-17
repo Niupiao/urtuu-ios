@@ -55,7 +55,7 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @IBAction func sortButtonPressed(sender: UIBarButtonItem) {
-        let sortController = UIAlertController(title: "Sort", message: nil, preferredStyle: .ActionSheet)
+        let sortController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
         let sortByPriceAscn = UIAlertAction(title: "Price: Low to High", style: .Default, handler: { action in
             self.items.sort() { $0.price < $1.price }
@@ -176,6 +176,7 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
             let detailVC = segue.destinationViewController as! ItemDetailViewController
             detailVC.itemSelected = items[indexPath.row]
             detailVC.title = items[indexPath.row].title
+            detailVC.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         }
         if segue.identifier == "fromTableCell" {
             let cell = sender as! ItemTableViewCell
@@ -184,7 +185,8 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
             let detailVC = segue.destinationViewController as! ItemDetailViewController
             detailVC.itemSelected = items[indexPath.row]
             detailVC.title = items[indexPath.row].title
+            detailVC.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         }
-
     }
 }
+

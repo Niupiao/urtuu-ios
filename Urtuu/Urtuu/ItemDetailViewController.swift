@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, CartViewDelegate {
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var topToolbar: UIToolbar!
@@ -153,6 +153,11 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         tabBarController?.tabBar.hidden = false
     }
     
+    @IBAction func buyPressed(sender: UIBarButtonItem) {
+        var cart = Cart.cart
+        cart.items.append(itemSelected)
+    }
+    
     // MARK: - Table View Delegate Methods
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -191,11 +196,28 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         } else {
             let cell = sellerCell.dequeueReusableCellWithIdentifier(sellerCellIdentifier) as! SellerCell
             
-            cell.sellerName = "Elon Musk"
+            cell.sellerName = itemSelected.seller
             cell.profilePic = UIImage(named: "elon")!
             cell.numberOfReviews.text = "77 reviews"
             
             return cell
         }
+    }
+    
+    // MARK: - Navigation Methods
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cartVC = segue.destinationViewController as! CartViewController
+        
+        cartVC.itemBought = itemSelected
+        cartVC.delegate = self
+    }
+    
+    // MARK: - Cart View Delegate Methods
+    
+    func dismissCartView(cartView: CartViewController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        let navControllers = self.navigationController?.viewControllers as! [UIViewController]
+        self.navigationController?.popToViewController(navControllers[1], animated: true)
     }
 }

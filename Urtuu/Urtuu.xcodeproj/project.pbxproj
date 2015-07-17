@@ -22,6 +22,9 @@
 		1C9027A21B4F71BD0039E390 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9027A11B4F71BD0039E390 /* ItemTableViewCell.swift */; };
 		1CCD0C731B54984900821C30 /* ItemDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD0C711B54984900821C30 /* ItemDetailCell.swift */; };
 		1CCD0C741B54984900821C30 /* ItemDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD0C721B54984900821C30 /* ItemDetailCell.xib */; };
+		1CDF1F181B581E2400A03709 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF1F171B581E2400A03709 /* CartViewController.swift */; };
+		1CDF1F1A1B581E4B00A03709 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF1F191B581E4B00A03709 /* Cart.swift */; };
+		1CDF1F1E1B582F7800A03709 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF1F1D1B582F7800A03709 /* CartItemCell.swift */; };
 		1CEAC0DF1B50314E00DDE13C /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEAC0DE1B50314E00DDE13C /* ItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,9 @@
 		1C9027A11B4F71BD0039E390 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		1CCD0C711B54984900821C30 /* ItemDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailCell.swift; sourceTree = "<group>"; };
 		1CCD0C721B54984900821C30 /* ItemDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailCell.xib; sourceTree = "<group>"; };
+		1CDF1F171B581E2400A03709 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		1CDF1F191B581E4B00A03709 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		1CDF1F1D1B582F7800A03709 /* CartItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
 		1CEAC0DE1B50314E00DDE13C /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +150,7 @@
 				1CCD0C721B54984900821C30 /* ItemDetailCell.xib */,
 				1C4FD0A41B573B9C00A0A121 /* SellerCell.swift */,
 				1C4FD0A51B573B9C00A0A121 /* SellerCell.xib */,
+				1CDF1F1D1B582F7800A03709 /* CartItemCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -154,6 +161,7 @@
 				1C784D731B4AF1690054CB9B /* BuyViewController.swift */,
 				1C784DB11B4C5B370054CB9B /* CategoryViewController.swift */,
 				1CEAC0DE1B50314E00DDE13C /* ItemDetailViewController.swift */,
+				1CDF1F171B581E2400A03709 /* CartViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -162,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				1C90279D1B4ED57B0039E390 /* Item.swift */,
+				1CDF1F191B581E4B00A03709 /* Cart.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -272,9 +281,12 @@
 				1C784DB41B4C614B0054CB9B /* ItemCollectionViewCell.swift in Sources */,
 				1C784DB21B4C5B370054CB9B /* CategoryViewController.swift in Sources */,
 				1CEAC0DF1B50314E00DDE13C /* ItemDetailViewController.swift in Sources */,
+				1CDF1F1E1B582F7800A03709 /* CartItemCell.swift in Sources */,
 				1C3307721B46E6B100224322 /* AppDelegate.swift in Sources */,
 				1C784D751B4AF1690054CB9B /* BuyViewController.swift in Sources */,
 				1C90279E1B4ED57B0039E390 /* Item.swift in Sources */,
+				1CDF1F1A1B581E4B00A03709 /* Cart.swift in Sources */,
+				1CDF1F181B581E2400A03709 /* CartViewController.swift in Sources */,
 				1C9027A21B4F71BD0039E390 /* ItemTableViewCell.swift in Sources */,
 				1CCD0C731B54984900821C30 /* ItemDetailCell.swift in Sources */,
 				1C784D7C1B4B30D40054CB9B /* NavigationTableViewCell.swift in Sources */,

@@ -19,9 +19,14 @@ class Item {
     var rating: String = "Stellar"
     var images: [UIImage] = [UIImage(named: "placeholder")!,UIImage(named: "iphone1")!,UIImage(named: "iphone2")!]
     var description: String = "the best phone money can buy"
+    var seller: String = "Elon Musk"
     
     init(){
         
+    }
+    
+    required init(identifier: Int){
+        self.id = identifier
     }
 }
 
