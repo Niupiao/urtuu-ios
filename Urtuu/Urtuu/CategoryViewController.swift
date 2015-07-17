@@ -56,7 +56,12 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: UIBarButtonItemStyle.Plain, target: self, action: "cartPressed")
+    }
+    
+    func cartPressed() {
+        let cartVC = storyboard?.instantiateViewControllerWithIdentifier("cartViewController") as! CartViewController
+        navigationController?.pushViewController(cartVC, animated: true)
     }
     
     @IBAction func sortButtonPressed(sender: UIBarButtonItem) {
@@ -181,7 +186,6 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
             let detailVC = segue.destinationViewController as! ItemDetailViewController
             detailVC.itemSelected = items[indexPath.row]
             detailVC.title = items[indexPath.row].title
-            detailVC.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         }
         if segue.identifier == "fromTableCell" {
             let cell = sender as! ItemTableViewCell
@@ -190,7 +194,6 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
             let detailVC = segue.destinationViewController as! ItemDetailViewController
             detailVC.itemSelected = items[indexPath.row]
             detailVC.title = items[indexPath.row].title
-            detailVC.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         }
     }
 }
