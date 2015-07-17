@@ -21,6 +21,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -70,7 +71,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 1.0 * self.view.frame.height / 3.0
+        return self.view.frame.height / 3.0
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -114,12 +115,17 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
     //MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let tableCell = sender as! NavigationTableViewCell
-        let indexPath = tableView.indexPathForCell(tableCell)
-        let title = tableCell.navigationLabel.text
-        
-        let catVC = segue.destinationViewController as! CategoryViewController
-        catVC.title = title
-        
+        if segue.identifier == "showCart" {
+            let cartVC = segue.destinationViewController as! CartViewController
+            
+            cartVC.title = "Cart"
+        } else {
+            let tableCell = sender as! NavigationTableViewCell
+            let indexPath = tableView.indexPathForCell(tableCell)
+            let title = tableCell.navigationLabel.text
+            
+            let catVC = segue.destinationViewController as! CategoryViewController
+            catVC.title = title
+        }
     }
 }

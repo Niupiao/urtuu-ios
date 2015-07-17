@@ -54,8 +54,18 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: UIBarButtonItemStyle.Plain, target: self, action: "cartPressed")
+    }
+    
+    func cartPressed() {
+        let cartVC = storyboard?.instantiateViewControllerWithIdentifier("cartViewController") as! CartViewController
+        navigationController?.pushViewController(cartVC, animated: true)
+    }
+    
     @IBAction func sortButtonPressed(sender: UIBarButtonItem) {
-        let sortController = UIAlertController(title: "Sort", message: nil, preferredStyle: .ActionSheet)
+        let sortController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
         let sortByPriceAscn = UIAlertAction(title: "Price: Low to High", style: .Default, handler: { action in
             self.items.sort() { $0.price < $1.price }
@@ -155,7 +165,7 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         cell.title = item.title
         cell.price = item.price
         cell.rating = item.rating
-        cell.itemPic = item.image
+        cell.itemPic = item.mainImage
         
         return cell
     }
@@ -165,4 +175,26 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return tableView.frame.height / 1.1
     }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "fromCollectionCell" {
+            let cell = sender as! ItemCollectionViewCell
+            let indexPath = collectionView.indexPathForCell(cell)!
+            
+            let detailVC = segue.destinationViewController as! ItemDetailViewController
+            detailVC.itemSelected = items[indexPath.row]
+            detailVC.title = items[indexPath.row].title
+        }
+        if segue.identifier == "fromTableCell" {
+            let cell = sender as! ItemTableViewCell
+            let indexPath = tableView.indexPathForCell(cell)!
+            
+            let detailVC = segue.destinationViewController as! ItemDetailViewController
+            detailVC.itemSelected = items[indexPath.row]
+            detailVC.title = items[indexPath.row].title
+        }
+    }
 }
+

@@ -12,14 +12,21 @@ import UIKit
 class Item {
     
     var id: Int = 0
-    var title: String = "iPhone"
+    var title: String = "iPhone 6"
     var price: Double = 649.99
-    var image: UIImage = UIImage(named: "placeholder.png")!
+    var mainImage: UIImage = UIImage(named: "placeholder")!
     var categories: [String]! = []
     var rating: String = "Stellar"
+    var images: NSMutableArray = [UIImage(named: "placeholder")!,UIImage(named: "iphone1")!,UIImage(named: "iphone2")!]
+    var description: String = "the best phone money can buy"
+    var seller: String = "Elon Musk"
     
     init(){
         
+    }
+    
+    required init(identifier: Int){
+        self.id = identifier
     }
 }
 
