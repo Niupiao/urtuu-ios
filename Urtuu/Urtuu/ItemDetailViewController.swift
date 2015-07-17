@@ -16,7 +16,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
     
     var itemSelected: Item!
     var tableView = UITableView()
-    var imageViewer: UIImageView!
+    var imageViewer: KASlideShow!
     var firstDetailView: UIView!
     var scrollView: UIScrollView!
     var contentView: UIView!
@@ -55,10 +55,12 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         sellerCell.registerNib(sellerCellNib, forCellReuseIdentifier: sellerCellIdentifier)
         
         //setting up imageViewer
-        imageViewer = UIImageView()
-        imageViewer.image = itemSelected.images[1]
-        imageViewer.contentMode = .ScaleAspectFill
-        imageViewer.clipsToBounds = true
+        imageViewer = KASlideShow()
+        imageViewer.setImagesDataSource(itemSelected.images)
+        imageViewer.imagesContentMode = .ScaleAspectFill
+        imageViewer.transitionDuration = 0.2
+        imageViewer.transitionType = KASlideShowTransitionType.Slide
+        imageViewer.addGesture(KASlideShowGestureType.Swipe)
         
         //setting up firstdetailview
         firstDetailView = UIView()
