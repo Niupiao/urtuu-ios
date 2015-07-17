@@ -525,6 +525,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9pv-Yn-vWq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EzQ-Ou-QzR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2OL-PK-sJh">
@@ -619,10 +620,8 @@
                                                     <exclude reference="nSG-0y-0FS"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="e4U-Y8-HDY"/>
-                                                    <exclude reference="kHV-Jc-ee1"/>
-                                                    <exclude reference="mTM-fD-WFz"/>
-                                                    <exclude reference="ojJ-K8-E3o"/>
+                                                    <exclude reference="IIf-rQ-EtE"/>
+                                                    <exclude reference="Yme-1D-b1y"/>
                                                     <exclude reference="edm-bJ-7FP"/>
                                                     <exclude reference="egg-Ne-xty"/>
                                                     <exclude reference="nC6-lx-mdq"/>
@@ -631,8 +630,10 @@
                                                     <exclude reference="iFq-XJ-TnK"/>
                                                     <exclude reference="7Qa-Rp-1xP"/>
                                                     <exclude reference="CPU-Dh-GXZ"/>
-                                                    <exclude reference="IIf-rQ-EtE"/>
-                                                    <exclude reference="Yme-1D-b1y"/>
+                                                    <exclude reference="e4U-Y8-HDY"/>
+                                                    <exclude reference="kHV-Jc-ee1"/>
+                                                    <exclude reference="mTM-fD-WFz"/>
+                                                    <exclude reference="ojJ-K8-E3o"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -644,10 +645,8 @@
                                                     <include reference="nSG-0y-0FS"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="e4U-Y8-HDY"/>
-                                                    <include reference="kHV-Jc-ee1"/>
-                                                    <include reference="mTM-fD-WFz"/>
-                                                    <include reference="ojJ-K8-E3o"/>
+                                                    <include reference="IIf-rQ-EtE"/>
+                                                    <include reference="Yme-1D-b1y"/>
                                                     <include reference="edm-bJ-7FP"/>
                                                     <include reference="egg-Ne-xty"/>
                                                     <include reference="nC6-lx-mdq"/>
@@ -656,8 +655,10 @@
                                                     <include reference="iFq-XJ-TnK"/>
                                                     <include reference="7Qa-Rp-1xP"/>
                                                     <include reference="CPU-Dh-GXZ"/>
-                                                    <include reference="IIf-rQ-EtE"/>
-                                                    <include reference="Yme-1D-b1y"/>
+                                                    <include reference="e4U-Y8-HDY"/>
+                                                    <include reference="kHV-Jc-ee1"/>
+                                                    <include reference="mTM-fD-WFz"/>
+                                                    <include reference="ojJ-K8-E3o"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -803,9 +804,14 @@
                                 <exclude reference="tET-g7-krZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="r89-qg-P2W"/>
                                 <exclude reference="9fh-1X-y2K"/>
                                 <exclude reference="h3R-3D-MgD"/>
                                 <exclude reference="u1S-hr-9Fn"/>
+                                <exclude reference="LaI-HD-aAD"/>
+                                <exclude reference="Zdo-Xj-oAt"/>
+                                <exclude reference="bmO-NO-20n"/>
+                                <exclude reference="pPy-pD-FKy"/>
                                 <exclude reference="Ap3-iD-ALO"/>
                                 <exclude reference="M7W-o7-cET"/>
                                 <exclude reference="xfP-wd-aaG"/>
@@ -815,11 +821,6 @@
                                 <exclude reference="Vjc-ou-pxl"/>
                                 <exclude reference="ZOR-Z7-2Kw"/>
                                 <exclude reference="u3I-nB-Rdd"/>
-                                <exclude reference="LaI-HD-aAD"/>
-                                <exclude reference="Zdo-Xj-oAt"/>
-                                <exclude reference="bmO-NO-20n"/>
-                                <exclude reference="pPy-pD-FKy"/>
-                                <exclude reference="r89-qg-P2W"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -830,9 +831,14 @@
                                 <include reference="tET-g7-krZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="r89-qg-P2W"/>
                                 <include reference="9fh-1X-y2K"/>
                                 <include reference="h3R-3D-MgD"/>
                                 <include reference="u1S-hr-9Fn"/>
+                                <include reference="LaI-HD-aAD"/>
+                                <include reference="Zdo-Xj-oAt"/>
+                                <include reference="bmO-NO-20n"/>
+                                <include reference="pPy-pD-FKy"/>
                                 <include reference="Ap3-iD-ALO"/>
                                 <include reference="M7W-o7-cET"/>
                                 <include reference="xfP-wd-aaG"/>
@@ -842,15 +848,11 @@
                                 <exclude reference="Vjc-ou-pxl"/>
                                 <include reference="ZOR-Z7-2Kw"/>
                                 <exclude reference="u3I-nB-Rdd"/>
-                                <include reference="LaI-HD-aAD"/>
-                                <include reference="Zdo-Xj-oAt"/>
-                                <include reference="bmO-NO-20n"/>
-                                <include reference="pPy-pD-FKy"/>
-                                <include reference="r89-qg-P2W"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="shopToolbarButton" destination="0df-zP-pxp" id="QXc-UT-gYz"/>
                         <outlet property="tableView" destination="RLc-Ug-pjO" id="glm-kr-TLR"/>
                         <outlet property="topToolbar" destination="2OL-PK-sJh" id="qag-az-eqr"/>
                         <outlet property="totalLabel" destination="Oyc-Ys-eXd" id="cLe-oJ-cQ2"/>

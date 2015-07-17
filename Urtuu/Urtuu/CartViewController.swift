@@ -18,6 +18,7 @@ class CartViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var totalView: UIView!
+    @IBOutlet weak var shopToolbarButton: UIBarButtonItem!
     
     var cart: Cart!
     var itemBought: Item?
@@ -68,6 +69,9 @@ class CartViewController: UIViewController, UITableViewDataSource {
         if let navBar = self.navigationController?.navigationBar {
             topToolbar.hidden = true
             self.tabBarController?.tabBar.hidden = true
+            
+            //hide shop button
+            
         }
     }
 
