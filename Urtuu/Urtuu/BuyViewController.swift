@@ -115,12 +115,17 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
     //MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let tableCell = sender as! NavigationTableViewCell
-        let indexPath = tableView.indexPathForCell(tableCell)
-        let title = tableCell.navigationLabel.text
-        
-        let catVC = segue.destinationViewController as! CategoryViewController
-        catVC.title = title
-        catVC.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        if segue.identifier == "showCart" {
+            let cartVC = segue.destinationViewController as! CartViewController
+            
+            cartVC.title = "Cart"
+        } else {
+            let tableCell = sender as! NavigationTableViewCell
+            let indexPath = tableView.indexPathForCell(tableCell)
+            let title = tableCell.navigationLabel.text
+            
+            let catVC = segue.destinationViewController as! CategoryViewController
+            catVC.title = title
+        }
     }
 }

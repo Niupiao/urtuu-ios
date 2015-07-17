@@ -54,6 +54,11 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+    }
+    
     @IBAction func sortButtonPressed(sender: UIBarButtonItem) {
         let sortController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         

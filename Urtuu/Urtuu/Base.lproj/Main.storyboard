@@ -80,7 +80,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Buy" id="ggi-1H-aGu">
-                        <barButtonItem key="rightBarButtonItem" title="Cart" id="bVD-yt-Idz"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cart" id="bVD-yt-Idz">
+                            <connections>
+                                <segue destination="9Ip-AO-c4o" kind="show" identifier="showCart" id="nix-u0-uvZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -998,6 +1002,7 @@
         <image name="placeholder" width="4000" height="3072"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="nix-u0-uvZ"/>
         <segue reference="JoW-Yu-PWz"/>
     </inferredMetricsTieBreakers>
 </document>

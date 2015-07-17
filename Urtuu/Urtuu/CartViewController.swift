@@ -64,8 +64,18 @@ class CartViewController: UIViewController, UITableViewDataSource {
         totalView.layer.borderWidth = 0.5
         
         totalLabel.text = "$" + String(format: "%.2f", cart.getTotal())
+        
+        if let navBar = self.navigationController?.navigationBar {
+            topToolbar.hidden = true
+            self.tabBarController?.tabBar.hidden = true
+        }
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.hidden = false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
