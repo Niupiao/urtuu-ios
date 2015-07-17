@@ -16,6 +16,8 @@ class CartViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topToolbar: UIToolbar!
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var totalView: UIView!
     
     var cart: Cart!
     var itemBought: Item?
@@ -57,6 +59,11 @@ class CartViewController: UIViewController, UITableViewDataSource {
         if itemBought != nil {
             cart.items.append(itemBought!)
         }
+        
+        totalView.layer.borderColor = UIColor.grayColor().CGColor
+        totalView.layer.borderWidth = 0.5
+        
+        totalLabel.text = "$" + String(format: "%.2f", cart.getTotal())
     }
 
     override func didReceiveMemoryWarning() {
