@@ -17,7 +17,6 @@ class CartViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var bottomToolbar: UIToolbar!
     
     var cart: Cart!
-    //var itemBought: Item?
     
     let cartItemCellIdentifier = "CartItemCell"
     
@@ -53,9 +52,6 @@ class CartViewController: UIViewController, UITableViewDataSource {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        /*if itemBought != nil {
-            cart.items.append(itemBought!)
-        }*/
         
         totalView.layer.borderColor = UIColor.grayColor().CGColor
         totalView.layer.borderWidth = 0.5

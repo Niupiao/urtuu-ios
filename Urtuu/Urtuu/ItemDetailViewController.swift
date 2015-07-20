@@ -177,7 +177,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
             self.navigationController?.popToViewController(navControllers[1], animated: true)
         })
         
-        let goToCartAction = UIAlertAction(title: "Cart", style: .Default, handler: { action in
+        let goToCartAction = UIAlertAction(title: "Checkout", style: .Default, handler: { action in
             let cartVC = self.storyboard?.instantiateViewControllerWithIdentifier("cartViewController") as! CartViewController
             cartVC.title = "Cart"
             
@@ -228,19 +228,11 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         } else {
             let cell = sellerCell.dequeueReusableCellWithIdentifier(sellerCellIdentifier) as! SellerCell
             
-            cell.sellerName = itemSelected.seller
-            cell.profilePic = UIImage(named: "elon")!
+            cell.sellerName = itemSelected.seller.name
+            cell.profilePic = itemSelected.seller.photo
             cell.numberOfReviews.text = "77 reviews"
             
             return cell
         }
     }
-    
-    // MARK: - Navigation Methods
-    
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cartVC = segue.destinationViewController as! CartViewController
-        
-        cartVC.itemBought = itemSelected
-    }*/
 }
