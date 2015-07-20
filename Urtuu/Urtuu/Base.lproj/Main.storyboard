@@ -682,11 +682,6 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1l-6B-Dwt">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Shop" id="0df-zP-pxp">
-                                        <connections>
-                                            <action selector="backPressed:" destination="9Ip-AO-c4o" id="bza-Qs-eQy"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4IF-z3-gga"/>
                                     <barButtonItem title="Checkout" id="MWx-D5-ED4">
                                         <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -908,7 +903,6 @@
                     </view>
                     <connections>
                         <outlet property="bottomToolbar" destination="c1l-6B-Dwt" id="HAd-3D-Vcu"/>
-                        <outlet property="shopToolbarButton" destination="0df-zP-pxp" id="QXc-UT-gYz"/>
                         <outlet property="tableView" destination="RLc-Ug-pjO" id="glm-kr-TLR"/>
                         <outlet property="topToolbar" destination="2OL-PK-sJh" id="qag-az-eqr"/>
                         <outlet property="totalLabel" destination="Oyc-Ys-eXd" id="cLe-oJ-cQ2"/>
@@ -964,7 +958,7 @@
                                     <barButtonItem title="Buy" id="7WS-QG-cWn">
                                         <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="9Ip-AO-c4o" kind="presentation" id="CiX-FR-xr1"/>
+                                            <action selector="buyPressed:" destination="dbI-AC-eNI" id="f1v-Ca-xsy"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Fuj-zg-wXE"/>
@@ -1060,7 +1054,6 @@
         <image name="placeholder" width="4000" height="3072"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nix-u0-uvZ"/>
         <segue reference="JoW-Yu-PWz"/>
     </inferredMetricsTieBreakers>
 </document>
