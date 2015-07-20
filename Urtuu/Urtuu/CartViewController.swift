@@ -95,7 +95,7 @@ class CartViewController: UIViewController, UITableViewDataSource {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        //modifiying tableView constrains based on whether or not navigation tab is showing
+        //modifiying tableView constraints based on whether or not navigation tab is showing
         if let navBar = self.navigationController?.navigationBar {
             tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
             
@@ -129,5 +129,4 @@ class CartViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
-    
 }
