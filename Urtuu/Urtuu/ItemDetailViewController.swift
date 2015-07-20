@@ -58,8 +58,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         imageViewer = KASlideShow()
         imageViewer.setImagesDataSource(itemSelected.images)
         imageViewer.imagesContentMode = .ScaleAspectFill
-        imageViewer.transitionDuration = 0.7
-        imageViewer.delay = 3.0
+        imageViewer.transitionDuration = 0.2
         imageViewer.transitionType = KASlideShowTransitionType.Slide
         imageViewer.addGesture(KASlideShowGestureType.Swipe)
         
@@ -140,7 +139,6 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         view.addConstraints(scvHConstraint)
         view.addConstraints(scvVConstraint)
         
-        imageViewer.start()
     }
 
     override func didReceiveMemoryWarning() {
@@ -157,6 +155,8 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
     
     func cartPressed() {
         let cartVC = storyboard?.instantiateViewControllerWithIdentifier("cartViewController") as! CartViewController
+        cartVC.title = "Cart"
+        
         navigationController?.pushViewController(cartVC, animated: true)
     }
     
@@ -164,7 +164,6 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         super.viewDidDisappear(animated)
         tabBarController?.tabBar.hidden = false
         
-        imageViewer.stop()
     }
     
     @IBAction func buyPressed(sender: UIBarButtonItem) {

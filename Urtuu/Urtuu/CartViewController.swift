@@ -54,6 +54,7 @@ class CartViewController: UIViewController, UITableViewDataSource {
         items.append(lSpacer)
         
         topToolbar.setItems(items, animated: true)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -68,6 +69,7 @@ class CartViewController: UIViewController, UITableViewDataSource {
         totalLabel.text = "$" + String(format: "%.2f", cart.getTotal())
         
         if let navBar = self.navigationController?.navigationBar {
+            //hide toolbar and tabbar
             topToolbar.hidden = true
             self.tabBarController?.tabBar.hidden = true
             
@@ -88,6 +90,21 @@ class CartViewController: UIViewController, UITableViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        //modifiying tableView constrains based on whether or not navigation tab is showing
+        if let navBar = self.navigationController?.navigationBar {
+            tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+            
+            let navBarHeight = navBar.frame.height + navBar.frame.origin.y
+            
+            let vTableViewConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-navBarHeight-[tableView]", options: nil, metrics: ["navBarHeight":navBarHeight], views: ["tableView":tableView])
+            
+            view.addConstraints(vTableViewConstraint)
+        }
     }
     
     @IBAction func backPressed(sender: UIBarButtonItem) {

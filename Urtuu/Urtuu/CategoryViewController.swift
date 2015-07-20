@@ -61,6 +61,8 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func cartPressed() {
         let cartVC = storyboard?.instantiateViewControllerWithIdentifier("cartViewController") as! CartViewController
+        cartVC.title = "Cart"
+        
         navigationController?.pushViewController(cartVC, animated: true)
     }
     
