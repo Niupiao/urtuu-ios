@@ -8,12 +8,14 @@
 
 import UIKit
 
-class SellViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SellViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AddListingViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noListingView: UIView!
     
     var listings: Listings!
     var listingCellIdentifier = "ListingCell"
+    var collectionViewHidden = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,18 +25,31 @@ class SellViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.delegate = self
         
         listings = Listings.listings
-        listings.myListings.append(Listing(identifier: 8))
-        listings.myListings.append(Listing(identifier: 9))
-        listings.myListings.append(Listing(identifier: 10))
-        listings.myListings.append(Listing(identifier: 11))
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionViewHidden = listings.myListings.isEmpty
+        collectionView.hidden = collectionViewHidden
+        noListingView.hidden = !collectionViewHidden
+        collectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func addListingPressed(sender: UIBarButtonItem) {
+        let addListingVC = storyboard?.instantiateViewControllerWithIdentifier("AddListingViewController") as! AddListingViewController
+        addListingVC.title = "Add New Listing"
+        addListingVC.delegate = self
+        let navController = UINavigationController(rootViewController: addListingVC)
+        
+        presentViewController(navController, animated: true, completion: nil)
     }
     
     // MARK: - Collection View Data Source Methods
@@ -65,6 +80,17 @@ class SellViewController: UIViewController, UICollectionViewDataSource, UICollec
         //println(collectionView.frame.height)
         
         return CGSizeMake(width, height)
+    }
+    
+    // MARK: - Add Listing View Delegate Methods
+    
+    func didPressCancel(addListing: AddListingViewController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func didPressAdd(addListing: AddListingViewController, newListing listing: Listing) {
+        listings.myListings.append(listing)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

@@ -32,6 +32,7 @@
 		1CF4E1E61B5D67F800CAC2F3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4E1E51B5D67F800CAC2F3 /* LoginViewController.swift */; };
 		1CF4E1E91B5D6E2D00CAC2F3 /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4E1E81B5D6E2D00CAC2F3 /* SellViewController.swift */; };
 		1CF4E1EB1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4E1EA1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift */; };
+		1CF4E1ED1B5D7BCB00CAC2F3 /* AddListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4E1EC1B5D7BCB00CAC2F3 /* AddListingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		1CF4E1E51B5D67F800CAC2F3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1CF4E1E81B5D6E2D00CAC2F3 /* SellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		1CF4E1EA1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingCollectionViewCell.swift; sourceTree = "<group>"; };
+		1CF4E1EC1B5D7BCB00CAC2F3 /* AddListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				1CDF1F171B581E2400A03709 /* CartViewController.swift */,
 				1CF4E1E51B5D67F800CAC2F3 /* LoginViewController.swift */,
 				1CF4E1E81B5D6E2D00CAC2F3 /* SellViewController.swift */,
+				1CF4E1EC1B5D7BCB00CAC2F3 /* AddListingViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				1CDF1F181B581E2400A03709 /* CartViewController.swift in Sources */,
 				1C9027A21B4F71BD0039E390 /* ItemTableViewCell.swift in Sources */,
 				1CF4E1E61B5D67F800CAC2F3 /* LoginViewController.swift in Sources */,
+				1CF4E1ED1B5D7BCB00CAC2F3 /* AddListingViewController.swift in Sources */,
 				1CCD0C731B54984900821C30 /* ItemDetailCell.swift in Sources */,
 				1CF4E1EB1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift in Sources */,
 				1C89FC671B597439003C5BCC /* KASlideShow.m in Sources */,
