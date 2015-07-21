@@ -75,7 +75,7 @@ class SellViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         let width = collectionView.frame.width / 2.15
         var height: CGFloat!
-        height = collectionView.frame.height > 323.0 ? collectionView.frame.height / 2.5 : collectionView.frame.height / 2.0
+        height = collectionView.frame.height > 323.0 ? collectionView.frame.height / 2.6 : collectionView.frame.height / 2.0
         
         //println(collectionView.frame.height)
         
