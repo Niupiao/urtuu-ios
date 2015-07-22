@@ -21,6 +21,7 @@ class Item {
     var images: NSMutableArray = [UIImage(named: "placeholder")!,UIImage(named: "iphone1")!,UIImage(named: "iphone2")!]
     var description: String = "the best phone money can buy"
     var seller: User = User()
+    var countryOrigin: String = "USA"
     
     init(){
         

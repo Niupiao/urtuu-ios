@@ -27,6 +27,8 @@
 		1CDF1F181B581E2400A03709 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF1F171B581E2400A03709 /* CartViewController.swift */; };
 		1CDF1F1A1B581E4B00A03709 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF1F191B581E4B00A03709 /* Cart.swift */; };
 		1CDF1F1E1B582F7800A03709 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF1F1D1B582F7800A03709 /* CartItemCell.swift */; };
+		1CE892721B5EF5DF00F5BD69 /* ExtendedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE892711B5EF5DF00F5BD69 /* ExtendedTextField.swift */; };
+		1CE892761B5F152B00F5BD69 /* NewListingTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE892751B5F152B00F5BD69 /* NewListingTableController.swift */; };
 		1CEAC0DF1B50314E00DDE13C /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEAC0DE1B50314E00DDE13C /* ItemDetailViewController.swift */; };
 		1CF4E1E21B5D4EA900CAC2F3 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4E1E11B5D4EA900CAC2F3 /* Listing.swift */; };
 		1CF4E1E41B5D5A8700CAC2F3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4E1E31B5D5A8700CAC2F3 /* User.swift */; };
@@ -73,6 +75,8 @@
 		1CDF1F171B581E2400A03709 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		1CDF1F191B581E4B00A03709 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		1CDF1F1D1B582F7800A03709 /* CartItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
+		1CE892711B5EF5DF00F5BD69 /* ExtendedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedTextField.swift; sourceTree = "<group>"; };
+		1CE892751B5F152B00F5BD69 /* NewListingTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewListingTableController.swift; sourceTree = "<group>"; };
 		1CEAC0DE1B50314E00DDE13C /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		1CF4E1E11B5D4EA900CAC2F3 /* Listing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		1CF4E1E31B5D5A8700CAC2F3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				1CDF1F1D1B582F7800A03709 /* CartItemCell.swift */,
 				1C89FC641B597438003C5BCC /* Urtuu-Bridging-Header.h */,
 				1CF4E1EA1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift */,
+				1CE892711B5EF5DF00F5BD69 /* ExtendedTextField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				1CF4E1E51B5D67F800CAC2F3 /* LoginViewController.swift */,
 				1CF4E1E81B5D6E2D00CAC2F3 /* SellViewController.swift */,
 				1CF4E1EC1B5D7BCB00CAC2F3 /* AddListingViewController.swift */,
+				1CE892751B5F152B00F5BD69 /* NewListingTableController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -329,8 +335,10 @@
 				1C9027A21B4F71BD0039E390 /* ItemTableViewCell.swift in Sources */,
 				1CF4E1E61B5D67F800CAC2F3 /* LoginViewController.swift in Sources */,
 				1C407E271B5DDC9D00991F58 /* HTTPHelper.swift in Sources */,
+				1CE892761B5F152B00F5BD69 /* NewListingTableController.swift in Sources */,
 				1CF4E1ED1B5D7BCB00CAC2F3 /* AddListingViewController.swift in Sources */,
 				1CCD0C731B54984900821C30 /* ItemDetailCell.swift in Sources */,
+				1CE892721B5EF5DF00F5BD69 /* ExtendedTextField.swift in Sources */,
 				1CF4E1EB1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift in Sources */,
 				1C89FC671B597439003C5BCC /* KASlideShow.m in Sources */,
 				1C784D7C1B4B30D40054CB9B /* NavigationTableViewCell.swift in Sources */,
