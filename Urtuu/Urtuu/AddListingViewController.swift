@@ -50,8 +50,8 @@ class AddListingViewController: UIViewController, NewListingTableDelegate {
     
     // MARK: - New Listing Table Delegate Methods
     
-    func textfieldDidEdit() {
-        self.navigationItem.rightBarButtonItem?.enabled = true
+    func textfieldDidEdit(textField: UITextField) {
+        self.navigationItem.rightBarButtonItem?.enabled = !textField.text.isEmpty
     }
     
     // MARK: - Segues and whatnot

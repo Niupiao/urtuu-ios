@@ -3,3 +3,4 @@
 //
 
 #import "KASlideShow.h"
+#import "ExtendedTextField.h"

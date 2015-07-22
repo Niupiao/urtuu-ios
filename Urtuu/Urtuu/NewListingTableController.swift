@@ -9,7 +9,7 @@
 import UIKit
 
 protocol NewListingTableDelegate {
-    func textfieldDidEdit()
+    func textfieldDidEdit(textField: UITextField)
 }
 
 class NewListingTableController: UITableViewController {
@@ -38,7 +38,7 @@ class NewListingTableController: UITableViewController {
     
     @IBAction func textFieldStartedEditing(sender: UITextField){
         if let delegate = self.delegate {
-            delegate.textfieldDidEdit()
+            delegate.textfieldDidEdit(sender)
         }
     }
     
