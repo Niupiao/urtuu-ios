@@ -44,8 +44,8 @@ class SellViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     @IBAction func addListingPressed(sender: UIBarButtonItem) {
-        let addListingVC = storyboard?.instantiateViewControllerWithIdentifier("AddListingViewController") as! AddListingViewController
-        addListingVC.title = "Add New Listing"
+        let addListingVC = storyboard?.instantiateViewControllerWithIdentifier("AddListingViewController") as! AddListingTableViewController
+        addListingVC.title = "New Listing"
         addListingVC.delegate = self
         let navController = UINavigationController(rootViewController: addListingVC)
         
@@ -84,13 +84,7 @@ class SellViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // MARK: - Add Listing View Delegate Methods
     
-    func didPressCancel(addListing: AddListingViewController) {
+    func didPressCancel() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    func didPressAdd(addListing: AddListingViewController, newListing listing: Listing) {
-        listings.myListings.append(listing)
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
 }

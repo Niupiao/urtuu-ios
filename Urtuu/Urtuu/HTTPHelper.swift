@@ -27,6 +27,8 @@ class HTTPHelper {
         return request
     }
     
+    //func sendProductRequest(request: NSURlRequest,
+    
     func sendRequest(request: NSURLRequest, completion: (NSData!, NSError!) -> Void) -> () {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data: NSData!, response: NSURLResponse!, error: NSError!) in
