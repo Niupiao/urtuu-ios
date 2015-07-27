@@ -23,7 +23,7 @@ class AddListingTableViewController: UITableViewController {
         
         // adding add and cancel buttons
         let addButton = UIBarButtonItem(title: "Add", style: .Plain, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: nil, action: "cancelPressed:")
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancelPressed:")
         cancelButton.tintColor = UIColor.redColor()
         self.navigationItem.rightBarButtonItem = addButton
         self.navigationItem.leftBarButtonItem = cancelButton
@@ -46,6 +46,7 @@ class AddListingTableViewController: UITableViewController {
         searchController.delegate = searchResultsController
         searchBar = searchController.searchBar
         searchBar.sizeToFit()
+        searchBar.delegate = searchResultsController
         tableView.tableHeaderView = searchBar
         
     }

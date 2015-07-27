@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C15ABA91B6310A900ADBDC3 /* libsemantics3-objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C15ABA81B6310A900ADBDC3 /* libsemantics3-objc.a */; };
 		1C3307721B46E6B100224322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3307711B46E6B100224322 /* AppDelegate.swift */; };
 		1C3307771B46E6B100224322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C3307751B46E6B100224322 /* Main.storyboard */; };
 		1C3307791B46E6B100224322 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C3307781B46E6B100224322 /* Images.xcassets */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C15ABA81B6310A900ADBDC3 /* libsemantics3-objc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libsemantics3-objc.a"; sourceTree = "<group>"; };
 		1C33076C1B46E6B100224322 /* Urtuu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Urtuu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C3307701B46E6B100224322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C3307711B46E6B100224322 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C15ABA91B6310A900ADBDC3 /* libsemantics3-objc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +111,7 @@
 		1C3307631B46E6B100224322 = {
 			isa = PBXGroup;
 			children = (
+				1C15ABA81B6310A900ADBDC3 /* libsemantics3-objc.a */,
 				1C33076E1B46E6B100224322 /* Urtuu */,
 				1C3307841B46E6B100224322 /* UrtuuTests */,
 				1C33076D1B46E6B100224322 /* Products */,
@@ -471,8 +475,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SOURCE_ROOT/include,
+				);
 				INFOPLIST_FILE = Urtuu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Urtuu",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Urtuu/Urtuu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -484,8 +499,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SOURCE_ROOT/include,
+				);
 				INFOPLIST_FILE = Urtuu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Urtuu",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Urtuu/Urtuu-Bridging-Header.h";
 			};
@@ -503,6 +529,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SOURCE_ROOT/include,
+				);
 				INFOPLIST_FILE = UrtuuTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -517,6 +548,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SOURCE_ROOT/include,
 				);
 				INFOPLIST_FILE = UrtuuTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
