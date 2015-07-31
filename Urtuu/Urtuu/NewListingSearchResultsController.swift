@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewListingSearchResultsController: UITableViewController, UISearchControllerDelegate, UISearchBarDelegate, Sem3ObjCDelegate {
+class NewListingSearchResultsController: UITableViewController, UISearchControllerDelegate, UISearchBarDelegate {
     
     let api_key = "SEM3B141C9316943EE3739AE691468ABBF07"
     let api_secret = "ZDdmOTUxOTUzZGY4NTBkZTllZWFkYTg0M2RjMmUzODk"
@@ -65,14 +65,14 @@ class NewListingSearchResultsController: UITableViewController, UISearchControll
         println(itemName)
         
         // initiating semantics3 request for product
-        let sem3 = semantics3_objc(semantic3Request: api_key, withapiSecret: api_secret, andEndpoints: "products")
+        /*let sem3 = semantics3_objc(semantic3Request: api_key, withapiSecret: api_secret, andEndpoints: "products")
         
         sem3.delegate = self
         
         var tempDict = NSMutableDictionary()
         tempDict.setValue("iphone", forKey: "search")
         sem3.field(tempDict)
-        sem3.runQuery()
+        sem3.runQuery()*/
     }
     
     // MARK: - Sem3 ObjC Delegate Methods
