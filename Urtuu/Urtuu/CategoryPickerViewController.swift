@@ -45,6 +45,10 @@ class CategoryPickerViewController: UITableViewController {
             let senderCell = sender as! CategoryCell
             let indexPath = tableView.indexPathForCell(senderCell)!
             
+            if let newListing = self.newListing {
+                newListing.itemCategory = senderCell.categoryName!
+            }
+            
             if let addListingVC = addListingController {
                 pickSubcatVC.delegate = addListingVC
             }

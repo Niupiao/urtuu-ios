@@ -11,10 +11,18 @@ import Foundation
 struct Constants {
     
     static var categories: [[String: AnyObject]]!
+    static var properties: [String: [String: AnyObject]]!
     
     init() {
-        let path = NSBundle.mainBundle().pathForResource("Categories", ofType: "plist")!
-        let categoriesInfo = NSDictionary(contentsOfFile: path)!
+        
+        //getting categories
+        let categoriesPath = NSBundle.mainBundle().pathForResource("Categories", ofType: "plist")!
+        let categoriesInfo = NSDictionary(contentsOfFile: categoriesPath)!
         Constants.categories = categoriesInfo["categories"] as! [NSDictionary] as! [[String: AnyObject]]
+        
+        //getting properties
+        let propertiesPath = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist")!
+        let propertiesInfo = NSDictionary(contentsOfFile: propertiesPath)!
+        Constants.properties = propertiesInfo["properties"] as! NSDictionary as! [String :[String: AnyObject]]
     }
 }

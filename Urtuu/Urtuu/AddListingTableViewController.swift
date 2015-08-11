@@ -14,13 +14,12 @@ protocol AddListingViewDelegate {
     func didPressAdd(addView: AddListingTableViewController, newListing listing: Listing)
 }
 
-class AddListingTableViewController: UITableViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SubcategoryPickerDelegate {
+class AddListingTableViewController: UITableViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SubcategoryPickerDelegate, PropertyPickerDelegate {
     
     var searchController: UISearchController!
     var searchBar: UISearchBar!
     var delegate: AddListingViewDelegate?
-    var categoryPickerVC: CategoryPickerViewController? = nil
-    var newListing: Listing? = nil
+    var newListing: Listing = Listing()
     var addButton: UIBarButtonItem!
     var itemImage: UIImage? = nil{
         didSet {
@@ -28,11 +27,17 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
         }
     }
     var lastChosenMediaType: NSString? = nil
+    var properties: [String: [String: AnyObject]]!
+    var sizeRequired: Bool = false
+    var volumeRequired: Bool = false
+    var countRequired: Bool = false
     
     let itemDescriptionPlaceholder: String = "Enter item description"
     let placeholderGray: UIColor = UIColor(white: 0.78, alpha: 1)
     
-
+    @IBOutlet weak var itemVolumeLabel: UILabel!
+    @IBOutlet weak var itemSizeLabel: UILabel!
+    @IBOutlet weak var itemCountLabel: UILabel!
     @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var itemBrandTF: UITextField!
@@ -44,6 +49,10 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
     @IBOutlet weak var imageCell: UITableViewCell!
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var takeAnotherImageButton: UIButton!
+    @IBOutlet weak var pickCategoryCellLabel: UILabel!
+    @IBOutlet weak var pickSizeCell: UITableViewCell!
+    @IBOutlet weak var pickVolumeCell: UITableViewCell!
+    @IBOutlet weak var pickCountCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +82,9 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
         searchBar.delegate = searchResultsController
         tableView.tableHeaderView = searchBar
         
-        newListing = Listing()
+        // getting properties
+        properties = Constants.properties
+        
         updateDisplay()
     }
     
@@ -82,6 +93,39 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
         var imageCellFrame = imageCell.frame
         imageCellFrame.size.height = self.view.frame.size.width
         imageCell.frame = imageCellFrame
+        
+        if pickSizeCell.frame.height == 0 {
+            pickSizeCell.accessoryType = .None
+            sizeRequired = false
+        } else {
+            pickSizeCell.accessoryType = .DisclosureIndicator
+            sizeRequired = true
+        }
+        
+        if pickVolumeCell.frame.height == 0 {
+            pickVolumeCell.accessoryType = .None
+            volumeRequired = false
+        } else {
+            pickVolumeCell.accessoryType = .DisclosureIndicator
+            volumeRequired = true
+        }
+        
+        if pickCountCell.frame.height == 0 {
+            pickCountCell.accessoryType = .None
+            countRequired = false
+        } else {
+            pickCountCell.accessoryType = .DisclosureIndicator
+            countRequired = true
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if let subCategory = newListing.itemSubcategory {
+            pickCategoryCellLabel.text = subCategory
+        }
+        
+        tableView.reloadData()
     }
     
     // MARK: - Helper Methods
@@ -137,6 +181,18 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
         }
     }
     
+    func heightForPropertyCell(property: String) -> CGFloat {
+        if let listingCategory = newListing.itemSubcategory {
+            let subcategoriesWithPropertyDict = properties[property] as! [String: [String]]
+            if let propertyOptions = subcategoriesWithPropertyDict[listingCategory] {
+                if propertyOptions.count >= 0 {
+                    return 44
+                }
+            }
+        }
+        return 0
+    }
+    
     // MARK: - Action Methods
     
     func cancelPressed(addView: AddListingTableViewController){
@@ -146,6 +202,42 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
     }
     
     func didPressAdd(sender: UIBarButtonItem){
+        if newListing.itemCategory == nil {
+            let alertController = UIAlertController(title: "Missing information", message: "You're missing item category", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            presentViewController(alertController, animated: true, completion: nil)
+            return
+        }
+        if sizeRequired {
+            if newListing.size == nil {
+                let alertController = UIAlertController(title: "Missing information", message: "You're missing item size", preferredStyle: .Alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                presentViewController(alertController, animated: true, completion: nil)
+                return
+            }
+        }
+        if volumeRequired {
+            if newListing.volume == nil {
+                let alertController = UIAlertController(title: "Missing information", message: "You're missing item volume", preferredStyle: .Alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                presentViewController(alertController, animated: true, completion: nil)
+                return
+            }
+        }
+        if countRequired {
+            if newListing.count == nil {
+                let alertController = UIAlertController(title: "Missing information", message: "You're missing item count", preferredStyle: .Alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                presentViewController(alertController, animated: true, completion: nil)
+                return
+            }
+        }
+        if newListing.itemSubcategory == nil {
+            let alertController = UIAlertController(title: "Missing information", message: "You're missing item subcategory", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            presentViewController(alertController, animated: true, completion: nil)
+            return
+        }
         if itemNameTF.text.isEmpty {
             let alertController = UIAlertController(title: "Missing information", message: "You're missing item name", preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
@@ -177,23 +269,23 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
             return
         }
         if let image = itemImage {
-            newListing!.mainImage = image
+            newListing.mainImage = image
         } else {
             let alertController = UIAlertController(title: "Missing information", message: "You're missing item image", preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
             presentViewController(alertController, animated: true, completion: nil)
             return
         }
-        newListing!.name = itemNameTF.text
-        newListing!.brand = itemBrandTF.text
-        newListing!.countryOrigin = itemCountryTF.text
-        newListing!.price = (itemPriceTF.text as NSString).doubleValue
-        newListing!.quantity = itemQuantityTF.text.toInt()!
-        newListing!.condition = itemConditionTF.text
-        newListing!.description = itemDescriptionTV.text != itemDescriptionPlaceholder ? itemDescriptionTV.text : ""
-        newListing!.active = true
+        newListing.name = itemNameTF.text
+        newListing.brand = itemBrandTF.text
+        newListing.countryOrigin = itemCountryTF.text
+        newListing.price = (itemPriceTF.text as NSString).doubleValue
+        newListing.quantity = itemQuantityTF.text.toInt()!
+        newListing.condition = itemConditionTF.text
+        newListing.description = itemDescriptionTV.text != itemDescriptionPlaceholder ? itemDescriptionTV.text : ""
+        newListing.active = true
         if let delegate = self.delegate {
-            delegate.didPressAdd(self, newListing: newListing!)
+            delegate.didPressAdd(self, newListing: newListing)
         }
     }
     
@@ -260,11 +352,17 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                if let image = itemImage {
-                    return self.view.frame.size.width + 46
-                } else {
-                    return self.view.frame.size.width
-                }
+                return self.view.frame.size.width
+            }
+            switch(indexPath.row){
+            case 2:
+                return heightForPropertyCell("size")
+            case 3:
+                return heightForPropertyCell("volume")
+            case 4:
+                return heightForPropertyCell("count")
+            default:
+                return 44
             }
         } else if indexPath.section == 2 {
             if indexPath.row == 6 {
@@ -279,16 +377,66 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PickCategory" {
             let chooseCatVC = segue.destinationViewController as! CategoryPickerViewController
+            chooseCatVC.newListing = newListing
             
             chooseCatVC.addListingController = self
-            chooseCatVC.newListing = newListing
+        } else if segue.identifier == "pickSize" {
+            let pickSizeVC = segue.destinationViewController as! PropertyPickerController
+            let listingSubcategory = newListing.itemSubcategory!
+            let subcategoriesWithPropertyDict = properties["size"] as! [String: [String]]
+            let propertyOptions = subcategoriesWithPropertyDict[listingSubcategory]
+            
+            pickSizeVC.propertyOptions = propertyOptions!
+            pickSizeVC.propertyType = "size"
+            pickSizeVC.delegate = self
+            pickSizeVC.title = "Pick a Size"
+        } else if segue.identifier == "pickVolume" {
+            let pickVolumeVC = segue.destinationViewController as! PropertyPickerController
+            let listingSubcategory = newListing.itemSubcategory!
+            let subcategoriesWithPropertyDict = properties["volume"] as! [String: [String]]
+            let propertyOptions = subcategoriesWithPropertyDict[listingSubcategory]
+            
+            pickVolumeVC.propertyOptions = propertyOptions!
+            pickVolumeVC.propertyType = "volume"
+            pickVolumeVC.delegate = self
+            pickVolumeVC.title = "Pick a Volume"
+        } else if segue.identifier == "pickCount" {
+            let pickCountVC = segue.destinationViewController as! PropertyPickerController
+            let listingSubcategory = newListing.itemSubcategory!
+            let subcategoriesWithPropertyDict = properties["count"] as! [String:[String]]
+            let propertyOptions = subcategoriesWithPropertyDict[listingSubcategory]
+            
+            pickCountVC.propertyOptions = propertyOptions
+            pickCountVC.propertyType = "count"
+            pickCountVC.delegate = self
+            pickCountVC.title = "Pick a Count"
         }
     }
     
     // MARK: - Subcategory Picker Delegate Methods
     
     func didPickSubcategory(newSubcategory subCat: String) {
-        println(subCat)
+        newListing.itemSubcategory = subCat
+        addButton.enabled = true
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    // MARK: - Property Picker Delegate Methods
+    
+    func didPickProperty(propertyPicker: PropertyPickerController, propertyType: String, property prop: String) {
+        switch(propertyType){
+            case "size":
+            newListing.size = prop
+            itemSizeLabel.text = newListing.size
+            case "volume":
+            newListing.volume = prop
+            itemVolumeLabel.text = newListing.volume
+            case "count":
+            newListing.count = prop
+            itemCountLabel.text = newListing.count
+        default:
+            println("Thanks you, Jarvis!")
+        }
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }
