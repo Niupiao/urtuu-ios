@@ -8,22 +8,15 @@
 
 import UIKit
 
-protocol CartViewDelegate {
-    func dismissCartView(cartView: CartViewController)
-}
-
 class CartViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var totalView: UIView!
-    @IBOutlet weak var shopToolbarButton: UIBarButtonItem!
     @IBOutlet weak var bottomToolbar: UIToolbar!
     
     var cart: Cart!
-    var itemBought: Item?
-    var delegate: CartViewDelegate?
     
     let cartItemCellIdentifier = "CartItemCell"
     
@@ -59,9 +52,6 @@ class CartViewController: UIViewController, UITableViewDataSource {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if itemBought != nil {
-            cart.items.append(itemBought!)
-        }
         
         totalView.layer.borderColor = UIColor.grayColor().CGColor
         totalView.layer.borderWidth = 0.5
@@ -72,13 +62,6 @@ class CartViewController: UIViewController, UITableViewDataSource {
             //hide toolbar and tabbar
             topToolbar.hidden = true
             self.tabBarController?.tabBar.hidden = true
-            
-            //hide shop button
-            var bottomItems: [UIBarButtonItem] = bottomToolbar.items as! [UIBarButtonItem]
-            if let index = find(bottomItems, shopToolbarButton) {
-                bottomItems.removeAtIndex(index)
-            }
-            bottomToolbar.items = bottomItems
         }
     }
 
@@ -107,12 +90,6 @@ class CartViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-    @IBAction func backPressed(sender: UIBarButtonItem) {
-        if let delegate = self.delegate {
-            delegate.dismissCartView(self)
-        }
-    }
-    
     // MARK: - Table View Data Source Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -125,7 +102,7 @@ class CartViewController: UIViewController, UITableViewDataSource {
         cell.itemPrice = cart.items[indexPath.row].price
         cell.itemSeller = cart.items[indexPath.row].seller
         cell.itemImage = cart.items[indexPath.row].mainImage
-        cell.itemTitle = cart.items[indexPath.row].title
+        cell.itemTitle = cart.items[indexPath.row].name
         
         return cell
     }

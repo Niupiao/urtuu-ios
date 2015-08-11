@@ -12,14 +12,22 @@ import UIKit
 class Item {
     
     var id: Int = 0
-    var title: String = "iPhone 6"
+    var quantity: Int = 1
+    var name: String = "iPhone 6"
     var price: Double = 649.99
+    var brand: String = "Apple"
     var mainImage: UIImage = UIImage(named: "placeholder")!
-    var categories: [String]! = []
+    var itemCategory: String?
+    var itemSubcategory: String?
     var rating: String = "Stellar"
     var images: NSMutableArray = [UIImage(named: "placeholder")!,UIImage(named: "iphone1")!,UIImage(named: "iphone2")!]
     var description: String = "the best phone money can buy"
-    var seller: String = "Elon Musk"
+    var seller: User = User()
+    var countryOrigin: String = "USA"
+    var condition:String = "New"
+    var size: String?
+    var volume: String?
+    var count: String?
     
     init(){
         

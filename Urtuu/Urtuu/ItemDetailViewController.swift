@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, CartViewDelegate {
+class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var topToolbar: UIToolbar!
@@ -72,7 +72,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         var itemLabel = UILabel()
         itemLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         itemLabel.font = UIFont(name: "HelveticaNeue-Light", size: 14.0) ?? UIFont()
-        itemLabel.text = itemSelected.title
+        itemLabel.text = itemSelected.name
         firstDetailView.addSubview(itemLabel)
         
         //adding pricelabel to firstdetailview
@@ -169,6 +169,25 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
     @IBAction func buyPressed(sender: UIBarButtonItem) {
         var cart = Cart.cart
         cart.items.append(itemSelected)
+        
+        let controller = UIAlertController(title: "Item Added to Cart", message: "Checkout or keep shopping?", preferredStyle: .Alert)
+        
+        let shopAction = UIAlertAction(title: "Shop", style: .Default, handler: {action in
+            let navControllers = self.navigationController?.viewControllers as! [UIViewController]
+            self.navigationController?.popToViewController(navControllers[1], animated: true)
+        })
+        
+        let goToCartAction = UIAlertAction(title: "Checkout", style: .Default, handler: { action in
+            let cartVC = self.storyboard?.instantiateViewControllerWithIdentifier("cartViewController") as! CartViewController
+            cartVC.title = "Cart"
+            
+            self.navigationController?.pushViewController(cartVC, animated: true)
+        })
+        
+        controller.addAction(shopAction)
+        controller.addAction(goToCartAction)
+        
+        presentViewController(controller, animated: true, completion: nil)
     }
     
     // MARK: - Table View Delegate Methods
@@ -209,28 +228,11 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         } else {
             let cell = sellerCell.dequeueReusableCellWithIdentifier(sellerCellIdentifier) as! SellerCell
             
-            cell.sellerName = itemSelected.seller
-            cell.profilePic = UIImage(named: "elon")!
+            cell.sellerName = itemSelected.seller.name
+            cell.profilePic = itemSelected.seller.photo
             cell.numberOfReviews.text = "77 reviews"
             
             return cell
         }
-    }
-    
-    // MARK: - Navigation Methods
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cartVC = segue.destinationViewController as! CartViewController
-        
-        cartVC.itemBought = itemSelected
-        cartVC.delegate = self
-    }
-    
-    // MARK: - Cart View Delegate Methods
-    
-    func dismissCartView(cartView: CartViewController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        let navControllers = self.navigationController?.viewControllers as! [UIViewController]
-        self.navigationController?.popToViewController(navControllers[1], animated: true)
     }
 }

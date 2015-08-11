@@ -15,9 +15,9 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
     
     let navCellIdentifier = "navigationCell"
     let images = [UIImage(named: "makeup.png"), UIImage(named: "baby.png"), UIImage(named: "recommend.png")]
-    let subCats = ["makeup": ["All Makeup","Eyeliner","Foundation","Lipstick"],
-        "baby": ["All Baby Products", "Baby Lotion","Clothes", "Socks","Diapers"],
-        "recommended":["Test1","Test2","Test3"]]
+    
+    let cats = ["makeup","baby","recommended"]
+    let subCats = [["All Makeup","Eyeliner","Foundation","Lipstick"],["All Baby Products", "Baby Lotion","Clothes", "Socks","Diapers"],["Test1","Test2","Test3"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
         
         var headerLabel: UILabel = UILabel()
         
-        let labelText = subCats.keys.array[section].capitalizedString as NSString
+        let labelText = cats[section].capitalizedString as NSString
         let attributedString = NSMutableAttributedString(string: labelText as String)
         let attributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Zapfino", size: 30.0) ?? UIFont.systemFontOfSize(30.0)]
         attributedString.addAttributes(attributes, range: labelText.rangeOfString(labelText as String))
@@ -96,7 +96,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if collapsedInfo[section] {
-            return subCats[subCats.keys.array[section]]!.count
+            return subCats[section].count
         }
         return 0
     }
@@ -105,8 +105,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(navCellIdentifier, forIndexPath: indexPath) as! NavigationTableViewCell
         
         if(collapsedInfo[indexPath.section]){
-            var key: String = subCats.keys.array[indexPath.section]
-            cell.navigationLabel.text = subCats[key]![indexPath.row]
+            cell.navigationLabel.text = subCats[indexPath.section][indexPath.row]
         }
         
         return cell

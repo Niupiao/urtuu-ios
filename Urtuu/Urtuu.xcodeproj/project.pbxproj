@@ -12,6 +12,9 @@
 		1C3307791B46E6B100224322 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C3307781B46E6B100224322 /* Images.xcassets */; };
 		1C33077C1B46E6B100224322 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C33077A1B46E6B100224322 /* LaunchScreen.xib */; };
 		1C3307881B46E6B100224322 /* UrtuuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3307871B46E6B100224322 /* UrtuuTests.swift */; };
+		1C407E271B5DDC9D00991F58 /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C407E261B5DDC9D00991F58 /* HTTPHelper.swift */; };
+		1C4F95981B61B7ED00314E2A /* AddListingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4F95971B61B7ED00314E2A /* AddListingTableViewController.swift */; };
+		1C4F959A1B61BABD00314E2A /* NewListingSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4F95991B61BABD00314E2A /* NewListingSearchResultsController.swift */; };
 		1C4FD0A61B573B9C00A0A121 /* SellerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4FD0A41B573B9C00A0A121 /* SellerCell.swift */; };
 		1C4FD0A71B573B9C00A0A121 /* SellerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4FD0A51B573B9C00A0A121 /* SellerCell.xib */; };
 		1C784D751B4AF1690054CB9B /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C784D731B4AF1690054CB9B /* BuyViewController.swift */; };
@@ -27,6 +30,19 @@
 		1CDF1F1A1B581E4B00A03709 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF1F191B581E4B00A03709 /* Cart.swift */; };
 		1CDF1F1E1B582F7800A03709 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF1F1D1B582F7800A03709 /* CartItemCell.swift */; };
 		1CEAC0DF1B50314E00DDE13C /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEAC0DE1B50314E00DDE13C /* ItemDetailViewController.swift */; };
+		1CF26DA41B7916DA00E0676F /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF26DA31B7916DA00E0676F /* CategoryPickerViewController.swift */; };
+		1CF26DA61B793A2900E0676F /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF26DA51B793A2900E0676F /* CategoryCell.swift */; };
+		1CF26DA81B79485F00E0676F /* Categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CF26DA71B79485F00E0676F /* Categories.plist */; };
+		1CF26DAA1B79728A00E0676F /* SubcategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF26DA91B79728A00E0676F /* SubcategoryPickerViewController.swift */; };
+		1CF26DAC1B7973C700E0676F /* SubcategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF26DAB1B7973C700E0676F /* SubcategoryCell.swift */; };
+		1CF26DAE1B797E8000E0676F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF26DAD1B797E8000E0676F /* Constants.swift */; };
+		1CF26DB21B7A48C600E0676F /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CF26DB11B7A48C600E0676F /* Properties.plist */; };
+		1CF26DB41B7A9B6E00E0676F /* PropertyPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF26DB31B7A9B6E00E0676F /* PropertyPickerController.swift */; };
+		1CF26DB61B7A9D0E00E0676F /* PropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF26DB51B7A9D0E00E0676F /* PropertyCell.swift */; };
+		1CF4E1E21B5D4EA900CAC2F3 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4E1E11B5D4EA900CAC2F3 /* Listing.swift */; };
+		1CF4E1E41B5D5A8700CAC2F3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4E1E31B5D5A8700CAC2F3 /* User.swift */; };
+		1CF4E1E91B5D6E2D00CAC2F3 /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4E1E81B5D6E2D00CAC2F3 /* SellViewController.swift */; };
+		1CF4E1EB1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF4E1EA1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +65,9 @@
 		1C3307811B46E6B100224322 /* UrtuuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrtuuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C3307861B46E6B100224322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C3307871B46E6B100224322 /* UrtuuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrtuuTests.swift; sourceTree = "<group>"; };
+		1C407E261B5DDC9D00991F58 /* HTTPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
+		1C4F95971B61B7ED00314E2A /* AddListingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListingTableViewController.swift; sourceTree = "<group>"; };
+		1C4F95991B61BABD00314E2A /* NewListingSearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewListingSearchResultsController.swift; sourceTree = "<group>"; };
 		1C4FD0A41B573B9C00A0A121 /* SellerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellerCell.swift; sourceTree = "<group>"; };
 		1C4FD0A51B573B9C00A0A121 /* SellerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SellerCell.xib; sourceTree = "<group>"; };
 		1C784D731B4AF1690054CB9B /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +85,19 @@
 		1CDF1F191B581E4B00A03709 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		1CDF1F1D1B582F7800A03709 /* CartItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
 		1CEAC0DE1B50314E00DDE13C /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		1CF26DA31B7916DA00E0676F /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
+		1CF26DA51B793A2900E0676F /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		1CF26DA71B79485F00E0676F /* Categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Categories.plist; sourceTree = "<group>"; };
+		1CF26DA91B79728A00E0676F /* SubcategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubcategoryPickerViewController.swift; sourceTree = "<group>"; };
+		1CF26DAB1B7973C700E0676F /* SubcategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubcategoryCell.swift; sourceTree = "<group>"; };
+		1CF26DAD1B797E8000E0676F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1CF26DB11B7A48C600E0676F /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = "<group>"; };
+		1CF26DB31B7A9B6E00E0676F /* PropertyPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyPickerController.swift; sourceTree = "<group>"; };
+		1CF26DB51B7A9D0E00E0676F /* PropertyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyCell.swift; sourceTree = "<group>"; };
+		1CF4E1E11B5D4EA900CAC2F3 /* Listing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		1CF4E1E31B5D5A8700CAC2F3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1CF4E1E81B5D6E2D00CAC2F3 /* SellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
+		1CF4E1EA1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +139,7 @@
 		1C33076E1B46E6B100224322 /* Urtuu */ = {
 			isa = PBXGroup;
 			children = (
+				1CF4E1E71B5D680700CAC2F3 /* Helpers */,
 				1C3307951B47082500224322 /* Models */,
 				1C3307941B47081B00224322 /* Controllers */,
 				1C3307931B47081100224322 /* Views */,
@@ -114,6 +147,8 @@
 				1C3307751B46E6B100224322 /* Main.storyboard */,
 				1C3307781B46E6B100224322 /* Images.xcassets */,
 				1C33077A1B46E6B100224322 /* LaunchScreen.xib */,
+				1CF26DA71B79485F00E0676F /* Categories.plist */,
+				1CF26DB11B7A48C600E0676F /* Properties.plist */,
 				1C33076F1B46E6B100224322 /* Supporting Files */,
 			);
 			path = Urtuu;
@@ -158,6 +193,10 @@
 				1C4FD0A51B573B9C00A0A121 /* SellerCell.xib */,
 				1CDF1F1D1B582F7800A03709 /* CartItemCell.swift */,
 				1C89FC641B597438003C5BCC /* Urtuu-Bridging-Header.h */,
+				1CF4E1EA1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift */,
+				1CF26DA51B793A2900E0676F /* CategoryCell.swift */,
+				1CF26DAB1B7973C700E0676F /* SubcategoryCell.swift */,
+				1CF26DB51B7A9D0E00E0676F /* PropertyCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -169,6 +208,12 @@
 				1C784DB11B4C5B370054CB9B /* CategoryViewController.swift */,
 				1CEAC0DE1B50314E00DDE13C /* ItemDetailViewController.swift */,
 				1CDF1F171B581E2400A03709 /* CartViewController.swift */,
+				1CF4E1E81B5D6E2D00CAC2F3 /* SellViewController.swift */,
+				1C4F95971B61B7ED00314E2A /* AddListingTableViewController.swift */,
+				1CF26DA31B7916DA00E0676F /* CategoryPickerViewController.swift */,
+				1CF26DA91B79728A00E0676F /* SubcategoryPickerViewController.swift */,
+				1CF26DB31B7A9B6E00E0676F /* PropertyPickerController.swift */,
+				1C4F95991B61BABD00314E2A /* NewListingSearchResultsController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -178,8 +223,19 @@
 			children = (
 				1C90279D1B4ED57B0039E390 /* Item.swift */,
 				1CDF1F191B581E4B00A03709 /* Cart.swift */,
+				1CF4E1E11B5D4EA900CAC2F3 /* Listing.swift */,
+				1CF4E1E31B5D5A8700CAC2F3 /* User.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		1CF4E1E71B5D680700CAC2F3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1C407E261B5DDC9D00991F58 /* HTTPHelper.swift */,
+				1CF26DAD1B797E8000E0676F /* Constants.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +318,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CF26DB21B7A48C600E0676F /* Properties.plist in Resources */,
 				1C3307771B46E6B100224322 /* Main.storyboard in Resources */,
 				1C4FD0A71B573B9C00A0A121 /* SellerCell.xib in Resources */,
 				1CCD0C741B54984900821C30 /* ItemDetailCell.xib in Resources */,
 				1C33077C1B46E6B100224322 /* LaunchScreen.xib in Resources */,
+				1CF26DA81B79485F00E0676F /* Categories.plist in Resources */,
 				1C3307791B46E6B100224322 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,20 +342,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CF26DA41B7916DA00E0676F /* CategoryPickerViewController.swift in Sources */,
 				1C4FD0A61B573B9C00A0A121 /* SellerCell.swift in Sources */,
 				1C784DB41B4C614B0054CB9B /* ItemCollectionViewCell.swift in Sources */,
+				1CF26DA61B793A2900E0676F /* CategoryCell.swift in Sources */,
+				1CF4E1E91B5D6E2D00CAC2F3 /* SellViewController.swift in Sources */,
 				1C784DB21B4C5B370054CB9B /* CategoryViewController.swift in Sources */,
+				1CF26DAC1B7973C700E0676F /* SubcategoryCell.swift in Sources */,
 				1CEAC0DF1B50314E00DDE13C /* ItemDetailViewController.swift in Sources */,
+				1CF4E1E41B5D5A8700CAC2F3 /* User.swift in Sources */,
+				1CF26DAA1B79728A00E0676F /* SubcategoryPickerViewController.swift in Sources */,
 				1CDF1F1E1B582F7800A03709 /* CartItemCell.swift in Sources */,
+				1C4F95981B61B7ED00314E2A /* AddListingTableViewController.swift in Sources */,
 				1C3307721B46E6B100224322 /* AppDelegate.swift in Sources */,
 				1C784D751B4AF1690054CB9B /* BuyViewController.swift in Sources */,
+				1CF26DB41B7A9B6E00E0676F /* PropertyPickerController.swift in Sources */,
+				1CF4E1E21B5D4EA900CAC2F3 /* Listing.swift in Sources */,
+				1C4F959A1B61BABD00314E2A /* NewListingSearchResultsController.swift in Sources */,
 				1C90279E1B4ED57B0039E390 /* Item.swift in Sources */,
 				1CDF1F1A1B581E4B00A03709 /* Cart.swift in Sources */,
 				1CDF1F181B581E2400A03709 /* CartViewController.swift in Sources */,
 				1C9027A21B4F71BD0039E390 /* ItemTableViewCell.swift in Sources */,
+				1C407E271B5DDC9D00991F58 /* HTTPHelper.swift in Sources */,
 				1CCD0C731B54984900821C30 /* ItemDetailCell.swift in Sources */,
+				1CF4E1EB1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift in Sources */,
 				1C89FC671B597439003C5BCC /* KASlideShow.m in Sources */,
 				1C784D7C1B4B30D40054CB9B /* NavigationTableViewCell.swift in Sources */,
+				1CF26DB61B7A9D0E00E0676F /* PropertyCell.swift in Sources */,
+				1CF26DAE1B797E8000E0676F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,8 +497,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = Urtuu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Urtuu",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Urtuu/Urtuu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -438,8 +521,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = Urtuu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Urtuu",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Urtuu/Urtuu-Bridging-Header.h";
 			};
@@ -457,6 +551,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SOURCE_ROOT/include,
+				);
 				INFOPLIST_FILE = UrtuuTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -471,6 +570,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SOURCE_ROOT/include,
 				);
 				INFOPLIST_FILE = UrtuuTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

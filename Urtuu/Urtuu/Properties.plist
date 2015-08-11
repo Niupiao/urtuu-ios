@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>properties</key>
+	<dict>
+		<key>size</key>
+		<dict>
+			<key>Boys Clothing</key>
+			<array>
+				<string>12 months</string>
+				<string>18 months</string>
+				<string>24 months</string>
+				<string>3T</string>
+				<string>4T</string>
+				<string>5T</string>
+			</array>
+			<key>Girls Clothing</key>
+			<array>
+				<string>12 months</string>
+				<string>18 months</string>
+				<string>24 months</string>
+				<string>3T</string>
+				<string>4T</string>
+				<string>5T</string>
+			</array>
+			<key>Underwear and Socks</key>
+			<array>
+				<string>0-24 months</string>
+				<string>2T</string>
+				<string>3T</string>
+				<string>4T</string>
+				<string>5T</string>
+				<string>One Size</string>
+			</array>
+			<key>Diapers</key>
+			<array>
+				<string>1</string>
+				<string>2</string>
+				<string>3</string>
+				<string>4</string>
+				<string>5</string>
+				<string>6</string>
+			</array>
+		</dict>
+		<key>volume</key>
+		<dict>
+			<key>Cleanse</key>
+			<array/>
+			<key>Moisturize</key>
+			<array/>
+			<key>Treatments</key>
+			<array/>
+			<key>Men&apos;s Fragrance</key>
+			<array/>
+			<key>Women&apos;s Fragrance</key>
+			<array/>
+			<key>Lotions and Creams</key>
+			<array/>
+			<key>Shower and Bath</key>
+			<array/>
+			<key>Suncare</key>
+			<array/>
+			<key>Nail Polish</key>
+			<array/>
+			<key>Special Effects</key>
+			<array/>
+			<key>Beverages</key>
+			<array/>
+			<key>Food</key>
+			<array/>
+			<key>Baby Formula</key>
+			<array/>
+			<key>Face Makeup</key>
+			<array/>
+			<key>Shampoo and Conditioner</key>
+			<array/>
+		</dict>
+		<key>count</key>
+		<dict>
+			<key>Treatments</key>
+			<array/>
+			<key>Special Effects</key>
+			<array/>
+			<key>Hair Accessories</key>
+			<array/>
+			<key>Baby and Toddler Clothing Accessories</key>
+			<array/>
+			<key>Beverages</key>
+			<array/>
+			<key>Food</key>
+			<array/>
+			<key>Baby Formula</key>
+			<array/>
+			<key>Feeding Accessories</key>
+			<array/>
+			<key>Diapers</key>
+			<array/>
+			<key>Underwear and Socks</key>
+			<array/>
+		</dict>
+		<key>age</key>
+		<dict>
+			<key>Learning Toys</key>
+			<array>
+				<string>Birth</string>
+				<string>12 months</string>
+				<string>18 months</string>
+				<string>24 months</string>
+				<string>3-4 years</string>
+			</array>
+			<key>Gates</key>
+			<array>
+				<string>12 months</string>
+				<string>18 months</string>
+				<string>24 months</string>
+				<string>2-4 years</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

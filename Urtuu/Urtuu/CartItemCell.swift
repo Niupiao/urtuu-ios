@@ -33,12 +33,12 @@ class CartItemCell: UITableViewCell {
         }
     }
     
-    var itemSeller: String {
+    var itemSeller: User {
         get {
-            return itemSellerLabel.text!
+            return User()
         }
         set(newSeller){
-            itemSellerLabel.text = newSeller
+            itemSellerLabel.text = newSeller.name
         }
     }
     
