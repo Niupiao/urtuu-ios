@@ -44,12 +44,12 @@ class SellViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     @IBAction func addListingPressed(sender: UIBarButtonItem) {
-        let addListingVC = storyboard?.instantiateViewControllerWithIdentifier("AddListingViewController") as! AddListingTableViewController
-        addListingVC.title = "New Listing"
+        let addListingNav = storyboard?.instantiateViewControllerWithIdentifier("NewListingNav") as! UINavigationController
+        let addListingVC = addListingNav.viewControllers[0] as! AddListingTableViewController
         addListingVC.delegate = self
-        let navController = UINavigationController(rootViewController: addListingVC)
+        println(addListingNav.viewControllers.count)
         
-        presentViewController(navController, animated: true, completion: nil)
+        presentViewController(addListingNav, animated: true, completion: nil)
     }
     
     // MARK: - Collection View Data Source Methods
@@ -61,7 +61,7 @@ class SellViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(listingCellIdentifier, forIndexPath: indexPath) as! ListingCollectionViewCell
         
-        cell.title = listings.myListings[indexPath.row].title
+        cell.title = listings.myListings[indexPath.row].name
         cell.quantity = listings.myListings[indexPath.row].quantity
         cell.price = listings.myListings[indexPath.row].price
         cell.listingImage = listings.myListings[indexPath.row].mainImage
@@ -84,7 +84,12 @@ class SellViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // MARK: - Add Listing View Delegate Methods
     
-    func didPressCancel() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func didPressCancel(addView: AddListingTableViewController) {
+        addView.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func didPressAdd(addView: AddListingTableViewController, newListing listing: Listing) {
+        listings.myListings.append(listing)
+        addView.dismissViewControllerAnimated(true, completion: nil)
     }
 }

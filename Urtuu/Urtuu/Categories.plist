@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>categories</key>
+	<array>
+		<dict>
+			<key>category</key>
+			<string>Make Up</string>
+			<key>subcategories</key>
+			<array>
+				<string>Face</string>
+				<string>Eye</string>
+				<string>Lips</string>
+				<string>Tools &amp; Bags</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Skin Care</string>
+			<key>subcategories</key>
+			<array>
+				<string>Cleanse</string>
+				<string>Moisturize</string>
+				<string>Treatments</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Fragrance</string>
+			<key>subcategories</key>
+			<array>
+				<string>men</string>
+				<string>women</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Bath and Body</string>
+			<key>subcategories</key>
+			<array>
+				<string>Lotions and Cream</string>
+				<string>Shower and Bath</string>
+				<string>Suncare</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Nails</string>
+			<key>subcategories</key>
+			<array>
+				<string>Solid Color Nail Polish</string>
+				<string>Top Coat or Base Coat</string>
+				<string>Kits/Sets</string>
+				<string>Special Effects</string>
+				<string>Treatment and Tools</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Hair</string>
+			<key>subcategories</key>
+			<array>
+				<string>Styling Products and Tools</string>
+				<string>Treatment</string>
+				<string>Shampoo Conditioner</string>
+				<string>Accessories</string>
+				<string>Color</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Baby and Toddler Clothing</string>
+			<key>subcategories</key>
+			<array>
+				<string>Boys Clothing</string>
+				<string>Girls Clothing</string>
+				<string>Accessories</string>
+				<string>Underwear and Socks</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Feeding</string>
+			<key>subcategories</key>
+			<array>
+				<string>Beverages</string>
+				<string>Food</string>
+				<string>Baby Formula</string>
+				<string>Accessories</string>
+				<string>Booster Seats</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Cribs</string>
+			<key>subcategories</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Diapering</string>
+			<key>subcategories</key>
+			<array>
+				<string>Baby Skin Care</string>
+				<string>Baby Wipes</string>
+				<string>Diaper Accessories</string>
+				<string>Diapers</string>
+				<string>Potty Seats and Step Stools</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Bedding and Decor</string>
+			<key>subcategories</key>
+			<array>
+				<string>Lamp and Night Lights</string>
+				<string>Rugs</string>
+				<string>Curtains</string>
+				<string>Bedding Separates</string>
+				<string>Baby Mattresses</string>
+				<string>Bedding Set</string>
+				<string>Crib Sheets, Crib Skirts, and Crib Bumpers</string>
+				<string>Hampers and Storage Drawers</string>
+				<string>Mobiles</string>
+				<string>Wall Decorations</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>car seats</string>
+			<key>subcategories</key>
+			<array>
+				<string>Booster Car Seats</string>
+				<string>Car Seat Accessories</string>
+				<string>Travel Sets</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Nursery Furniture</string>
+			<key>subcategory</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Activites and Toys</string>
+			<key>subcategories</key>
+			<array>
+				<string>Bikes</string>
+				<string>Bouncers and Sleepers</string>
+				<string>Gyms and Playmats</string>
+				<string>Learning Toys</string>
+				<string>Miscellaneous Toys</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Health and Safety</string>
+			<key>subcategories</key>
+			<array>
+				<string>Gates</string>
+				<string>Baby Monitors</string>
+				<string>Baby Proofing</string>
+				<string>Grooming and Healthcare essentials</string>
+			</array>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Strollers</string>
+			<key>subcategories</key>
+			<array/>
+		</dict>
+	</array>
+</dict>
+</plist>

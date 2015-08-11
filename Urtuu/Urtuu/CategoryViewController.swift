@@ -129,7 +129,7 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         
         let item = items[indexPath.row]
         
-        cell.title = item.title
+        cell.title = item.name
         cell.price = item.price
         cell.rating = item.rating
         
@@ -164,7 +164,7 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         
         let item = items[indexPath.row]
         
-        cell.title = item.title
+        cell.title = item.name
         cell.price = item.price
         cell.rating = item.rating
         cell.itemPic = item.mainImage
@@ -187,7 +187,7 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
             
             let detailVC = segue.destinationViewController as! ItemDetailViewController
             detailVC.itemSelected = items[indexPath.row]
-            detailVC.title = items[indexPath.row].title
+            detailVC.title = items[indexPath.row].name
         }
         if segue.identifier == "fromTableCell" {
             let cell = sender as! ItemTableViewCell
@@ -195,7 +195,7 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
             
             let detailVC = segue.destinationViewController as! ItemDetailViewController
             detailVC.itemSelected = items[indexPath.row]
-            detailVC.title = items[indexPath.row].title
+            detailVC.title = items[indexPath.row].name
         }
     }
 }

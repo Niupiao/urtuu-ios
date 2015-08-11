@@ -11,14 +11,13 @@ import Foundation
 class HTTPHelper {
     
     static let URTU_BASE_URL = ""
-    static let SEM3_BASE_URL = "https://api.semantics3.com/v1/products?q="
     
-    func buildSem3Request(requestType: String, requestItem: String, method: String) -> NSMutableURLRequest {
+    func buildRequest(requestType: String, requestItem: String, method: String) -> NSMutableURLRequest {
         var requestURL: NSURL!
         var request: NSMutableURLRequest!
         
         //build request URL
-        requestURL = NSURL(string: "\(HTTPHelper.SEM3_BASE_URL){\"\(requestType)\":\"\(requestItem)}")
+        requestURL = NSURL(string: "\(HTTPHelper.URTU_BASE_URL)")
         request = NSMutableURLRequest(URL: requestURL)
         
         //set request method

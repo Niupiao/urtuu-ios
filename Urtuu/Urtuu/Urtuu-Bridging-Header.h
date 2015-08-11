@@ -4,4 +4,3 @@
 
 #import "KASlideShow.h"
 #import "ExtendedTextField.h"
-//#import "semantics3-objc/semantics3_objc.h"

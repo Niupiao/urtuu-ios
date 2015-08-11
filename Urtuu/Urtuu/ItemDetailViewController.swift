@@ -72,7 +72,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         var itemLabel = UILabel()
         itemLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         itemLabel.font = UIFont(name: "HelveticaNeue-Light", size: 14.0) ?? UIFont()
-        itemLabel.text = itemSelected.title
+        itemLabel.text = itemSelected.name
         firstDetailView.addSubview(itemLabel)
         
         //adding pricelabel to firstdetailview

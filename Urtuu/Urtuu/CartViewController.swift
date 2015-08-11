@@ -102,7 +102,7 @@ class CartViewController: UIViewController, UITableViewDataSource {
         cell.itemPrice = cart.items[indexPath.row].price
         cell.itemSeller = cart.items[indexPath.row].seller
         cell.itemImage = cart.items[indexPath.row].mainImage
-        cell.itemTitle = cart.items[indexPath.row].title
+        cell.itemTitle = cart.items[indexPath.row].name
         
         return cell
     }
