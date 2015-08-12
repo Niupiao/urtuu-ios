@@ -13,6 +13,10 @@ struct Constants {
     static var categories: [[String: AnyObject]]!
     static var properties: [String: [String: AnyObject]]!
     
+    static let userLoggedInKey = "UserLoggedIn?"
+    static let userLoggedInValueOK = "OK"
+    static let UserLoggedOutNotification = "UserLoggedOut"
+    
     init() {
         
         //getting categories

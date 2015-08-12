@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, LoginViewControllerDelegate {
 
     var window: UIWindow?
 
@@ -20,7 +20,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize static list of categories
         Constants.init()
         
-        return true
+        // Checking if user is logged in, app will behave accordingly
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.objectForKey(Constants.userLoggedInKey) == nil {
+            let loginController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            loginController.delegate = self
+            
+            self.window?.makeKeyAndVisible()
+            self.window?.rootViewController = loginController
+        } else {
+            self.window?.rootViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController() as! UITabBarController
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: Constants.UserLoggedOutNotification, object: nil)
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    // MARK: - Selectors and Action Methods
+    
+    func userDidLogout() {
+        let loginVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+        loginVC.delegate = self
+        
+        self.window?.rootViewController = loginVC
+    }
+    
+    // MARK: - Login View Delegate Methods
+    
+    func didLoginWithSuccess(loginView: LoginViewController) {
+        let mainTabVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController() as! UITabBarController
+        self.window?.rootViewController = mainTabVC
+    }
+    
+    // MARK: - Facebook necessary add-ons
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -39,6 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
