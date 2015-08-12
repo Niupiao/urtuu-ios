@@ -31,6 +31,7 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
     var sizeRequired: Bool = false
     var volumeRequired: Bool = false
     var countRequired: Bool = false
+    var currentUser: User!
     
     let itemDescriptionPlaceholder: String = "Enter item description"
     let placeholderGray: UIColor = UIColor(white: 0.78, alpha: 1)
@@ -84,6 +85,9 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
         
         // getting properties
         properties = Constants.properties
+        
+        // current user
+        currentUser = User.CurrentUser
         
         updateDisplay()
     }
@@ -283,7 +287,9 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
         newListing.quantity = itemQuantityTF.text.toInt()!
         newListing.condition = itemConditionTF.text
         newListing.description = itemDescriptionTV.text != itemDescriptionPlaceholder ? itemDescriptionTV.text : ""
+        
         newListing.active = true
+        newListing.seller = currentUser
         if let delegate = self.delegate {
             delegate.didPressAdd(self, newListing: newListing)
         }
