@@ -8,25 +8,37 @@
 
 import Foundation
 
-class HTTPHelper {
+struct HTTPHelper {
     
-    static let URTU_BASE_URL = ""
+    static let URTU_BASE_URL = "https://niupiaomarket.herokuapp.com/mobile"
     
-    func buildRequest(requestType: String, requestItem: String, method: String) -> NSMutableURLRequest {
+    func buildLoginRequest(email: String, fbId: String) -> NSMutableURLRequest {
         var requestURL: NSURL!
         var request: NSMutableURLRequest!
         
         //build request URL
-        requestURL = NSURL(string: "\(HTTPHelper.URTU_BASE_URL)")
+        requestURL = NSURL(string: "\(HTTPHelper.URTU_BASE_URL)/login?email=\(email)&facebook_id=\(fbId)")
         request = NSMutableURLRequest(URL: requestURL)
         
         //set request method
-        request.HTTPMethod = method
+        request.HTTPMethod = "GET"
         
         return request
     }
     
-    //func sendProductRequest(request: NSURlRequest,
+    func buildSignUpRequest(email: String, fName: String, lName: String, fbId: String) -> NSMutableURLRequest {
+        var signUpURL: NSURL!
+        var signUpRequest: NSMutableURLRequest!
+        
+        //build signup URL
+        signUpURL = NSURL(string: "\(HTTPHelper.URTU_BASE_URL)/register?email=\(email)&first_name=\(fName)&last_name=\(lName)&facebook_id=\(fbId)")
+        signUpRequest = NSMutableURLRequest(URL: signUpURL)
+        
+        //set method
+        signUpRequest.HTTPMethod = "GET"
+        
+        return signUpRequest
+    }
     
     func sendRequest(request: NSURLRequest, completion: (NSData!, NSError!) -> Void) -> () {
         let session = NSURLSession.sharedSession()

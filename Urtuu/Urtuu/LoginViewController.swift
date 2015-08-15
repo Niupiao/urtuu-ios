@@ -17,7 +17,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
     
+    let httpHelper = HTTPHelper()
     var delegate: LoginViewControllerDelegate?
+    var loginWithFB: Bool = false
+    var userEmail: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +47,20 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             // handle cancellation
         } else {
             if result.grantedPermissions.contains("email") {
-                let userDefaults = NSUserDefaults.standardUserDefaults()
-                userDefaults.setObject(Constants.userLoggedInValueOK, forKey: Constants.userLoggedInKey)
-                userDefaults.synchronize()
-                if let delegate = self.delegate {
-                    delegate.didLoginWithSuccess(self)
-                }
+                loginWithFB = true
+                
+                let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email"])
+                graphRequest.startWithCompletionHandler({(connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError!) in
+                    let resultDict = result as? NSDictionary as? [String: String]
+                    println(3)
+                    if let email = resultDict!["email"] {
+                        if let fbId = resultDict!["id"] {
+                            self.userEmail = email
+                            self.loginRequest(email, fbId: fbId)
+                        }
+                    }
+                })
+                println(2)
             }
         }
     }
@@ -59,5 +70,63 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(nil, forKey: Constants.userLoggedInKey)
         defaults.synchronize()
+    }
+    
+    // MARK: - Urtu servers navigation
+    
+    func loginRequest(email: String, fbId: String){
+        let httpRequest = httpHelper.buildLoginRequest(email, fbId: fbId)
+        httpHelper.sendRequest(httpRequest, completion: { (data:NSData!, error: NSError!) in
+            
+            if error != nil {
+                // got an error, whatever
+            }
+            
+            var error: NSError?
+            let response = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error) as! NSDictionary 
+            if response["error"] != nil {
+                if self.loginWithFB {
+                    // user not signed up, sign him up
+                    let profile = FBSDKProfile.currentProfile()
+                    if let email = self.userEmail {
+                        let signUpRequest = self.httpHelper.buildSignUpRequest(email, fName: profile.firstName, lName: profile.lastName, fbId: profile.userID)
+                        var response: NSURLResponse?
+                        var error: NSError?
+                        let data: NSData = NSURLConnection.sendSynchronousRequest(signUpRequest, returningResponse: &response, error: &error)!
+                        let dataDict = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &error) as! NSDictionary
+                        if dataDict["error"] != nil {
+                            // something happened during the sign up. Fix it
+                        } else {
+                            if let delegate = self.delegate {
+                                delegate.didLoginWithSuccess(self)
+                            }
+                        }
+                    }
+                } else {
+                    // user entered wrong credentials
+                    self.showLoginErrorAlert()
+                }
+            } else {
+                self.updateUserDefaultsToLoggedIn()
+                if let delegate = self.delegate {
+                    delegate.didLoginWithSuccess(self)
+                }
+            }
+        })
+    }
+    
+    // MARK: - Helper Methods
+    
+    func showLoginErrorAlert() {
+        let alertController = UIAlertController(title: "Login Error", message: "You've entered the wrong credentials. If you haven't signed up, please sign up or login with Facebook.", preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+        alertController.addAction(okAction)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func updateUserDefaultsToLoggedIn(){
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(Constants.userLoggedInValueOK, forKey: Constants.userLoggedInKey)
+        userDefaults.synchronize()
     }
 }

@@ -37,24 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginViewControllerDelega
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
-    // MARK: - Selectors and Action Methods
-    
-    func userDidLogout() {
-        let loginVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-        loginVC.delegate = self
-        
-        self.window?.rootViewController = loginVC
-    }
-    
-    // MARK: - Login View Delegate Methods
-    
-    func didLoginWithSuccess(loginView: LoginViewController) {
-        let mainTabVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController() as! UITabBarController
-        self.window?.rootViewController = mainTabVC
-    }
-    
-    // MARK: - Facebook necessary add-ons
-    
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
@@ -80,6 +62,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginViewControllerDelega
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // MARK: - Selectors and Action Methods
+    
+    func userDidLogout() {
+        let loginVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+        loginVC.delegate = self
+        
+        self.window?.rootViewController = loginVC
+    }
+    
+    // MARK: - Login View Delegate Methods
+    
+    func didLoginWithSuccess(loginView: LoginViewController) {
+        let mainTabVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController() as! UITabBarController
+        self.window?.rootViewController = mainTabVC
     }
 
 

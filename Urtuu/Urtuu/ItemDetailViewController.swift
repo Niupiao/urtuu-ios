@@ -229,7 +229,9 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
             let cell = sellerCell.dequeueReusableCellWithIdentifier(sellerCellIdentifier) as! SellerCell
             
             cell.sellerName = itemSelected.seller.first_name
-            cell.profilePic = itemSelected.seller.profilePicture
+            if let picture = itemSelected.seller.profilePicture{
+                cell.profilePic = picture
+            }
             cell.numberOfReviews.text = "77 reviews"
             
             return cell

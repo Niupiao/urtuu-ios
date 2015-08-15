@@ -30,7 +30,7 @@ class User {
     var payment: PaymentSettings!
     var fbId: String!
     var phone_number: String!
-    var profilePicture: UIImage!
+    var profilePicture: UIImage? = nil
     var pastPurchases: [Item]!
     
     init() {

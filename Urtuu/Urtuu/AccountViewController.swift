@@ -17,6 +17,10 @@ class AccountViewController: UIViewController {
 
         // setting up currentUser
         currentUser = User.CurrentUser
+        
+        if let token = FBSDKAccessToken.currentAccessToken() {
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
