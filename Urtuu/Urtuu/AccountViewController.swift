@@ -8,7 +8,9 @@
 
 import UIKit
 
-class AccountViewController: UIViewController {
+class AccountViewController: UITableViewController {
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
     
     var currentUser: User!
 
@@ -18,8 +20,17 @@ class AccountViewController: UIViewController {
         // setting up currentUser
         currentUser = User.CurrentUser
         
-        if let token = FBSDKAccessToken.currentAccessToken() {
-            
+        // setting up welcome label
+        var welcomeLabelString = welcomeLabel.text! as NSString
+        if welcomeLabelString.length > 13 {
+            println("Name here")
+        } else {
+            let welcomeString = "Welcome back, \(currentUser.first_name)."
+            let welcomeAttributedString = NSMutableAttributedString(string: welcomeString)
+            let firstName = currentUser.first_name
+            let nameRange = (welcomeString as NSString).rangeOfString(firstName + ".")
+            welcomeAttributedString.setAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(welcomeLabel.font.pointSize)], range: nameRange)
+            welcomeLabel.attributedText = welcomeAttributedString
         }
     }
 

@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     var delegate: LoginViewControllerDelegate?
     var loginWithFB: Bool = false
     var userEmail: String? = nil
+    var currentUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +101,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             if let delegate = self.delegate {
                                 delegate.didLoginWithSuccess(self)
                             }
+                            self.updateCurrentUser(dataDict)
                         }
                     }
                 } else {
@@ -108,6 +110,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 }
             } else {
                 self.updateUserDefaultsToLoggedIn()
+                self.updateCurrentUser(response)
                 if let delegate = self.delegate {
                     delegate.didLoginWithSuccess(self)
                 }
@@ -128,5 +131,19 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setObject(Constants.userLoggedInValueOK, forKey: Constants.userLoggedInKey)
         userDefaults.synchronize()
+    }
+    
+    func updateCurrentUser(data: NSDictionary){
+        currentUser = User.CurrentUser
+        if let fName = data["first_name"] as? String {
+            currentUser.first_name = fName
+        }
+        if let lName = data["last_name"] as? String {
+            currentUser.last_name = lName
+        }
+        
+        if let fullName = data["name"] as? String {
+            currentUser.name = fullName
+        }
     }
 }

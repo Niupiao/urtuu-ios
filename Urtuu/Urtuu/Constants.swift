@@ -17,6 +17,8 @@ struct Constants {
     static let userLoggedInValueOK = "OK"
     static let UserLoggedOutNotification = "UserLoggedOut"
     
+    static let OrderHistoryCellIdentifier = "OrderHistoryCell"
+    
     init() {
         
         //getting categories

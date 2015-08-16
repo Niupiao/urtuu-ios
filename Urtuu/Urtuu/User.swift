@@ -26,6 +26,7 @@ class User {
     var first_name: String!
     var middle_name: String!
     var last_name: String!
+    var name: String!
     var address: String!
     var payment: PaymentSettings!
     var fbId: String!
@@ -38,6 +39,7 @@ class User {
         debit_card = "XXXXXXXXXXXXXXXX"
         first_name = "Elon"
         last_name = "Musk"
+        name = "Elon Musk"
         address = "77 Main Street, North Adams, MA, 01247"
         payment = PaymentSettings.Debit
         fbId = "0"

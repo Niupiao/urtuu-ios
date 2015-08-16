@@ -24,6 +24,10 @@
 		1C89FC671B597439003C5BCC /* KASlideShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89FC661B597439003C5BCC /* KASlideShow.m */; };
 		1C90279E1B4ED57B0039E390 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C90279D1B4ED57B0039E390 /* Item.swift */; };
 		1C9027A21B4F71BD0039E390 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9027A11B4F71BD0039E390 /* ItemTableViewCell.swift */; };
+		1C9E248D1B7FBF4F007CEE36 /* BasicInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9E248C1B7FBF4F007CEE36 /* BasicInfoController.swift */; };
+		1C9E248F1B7FC671007CEE36 /* AddressPhoneNumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9E248E1B7FC671007CEE36 /* AddressPhoneNumController.swift */; };
+		1C9E24911B7FFB38007CEE36 /* PaymentSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9E24901B7FFB38007CEE36 /* PaymentSettingsController.swift */; };
+		1C9E24931B8006EE007CEE36 /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9E24921B8006EE007CEE36 /* OrderHistoryViewController.swift */; };
 		1CCD0C731B54984900821C30 /* ItemDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD0C711B54984900821C30 /* ItemDetailCell.swift */; };
 		1CCD0C741B54984900821C30 /* ItemDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD0C721B54984900821C30 /* ItemDetailCell.xib */; };
 		1CDF1F181B581E2400A03709 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF1F171B581E2400A03709 /* CartViewController.swift */; };
@@ -84,6 +88,10 @@
 		1C89FC661B597439003C5BCC /* KASlideShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KASlideShow.m; sourceTree = "<group>"; };
 		1C90279D1B4ED57B0039E390 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1C9027A11B4F71BD0039E390 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		1C9E248C1B7FBF4F007CEE36 /* BasicInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfoController.swift; sourceTree = "<group>"; };
+		1C9E248E1B7FC671007CEE36 /* AddressPhoneNumController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPhoneNumController.swift; sourceTree = "<group>"; };
+		1C9E24901B7FFB38007CEE36 /* PaymentSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSettingsController.swift; sourceTree = "<group>"; };
+		1C9E24921B8006EE007CEE36 /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
 		1CCD0C711B54984900821C30 /* ItemDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailCell.swift; sourceTree = "<group>"; };
 		1CCD0C721B54984900821C30 /* ItemDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailCell.xib; sourceTree = "<group>"; };
 		1CDF1F171B581E2400A03709 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +238,10 @@
 				1C4F95991B61BABD00314E2A /* NewListingSearchResultsController.swift */,
 				1CF26DC41B7BA22800E0676F /* LoginViewController.swift */,
 				1CF26DC61B7BBC6F00E0676F /* AccountViewController.swift */,
+				1C9E248C1B7FBF4F007CEE36 /* BasicInfoController.swift */,
+				1C9E248E1B7FC671007CEE36 /* AddressPhoneNumController.swift */,
+				1C9E24901B7FFB38007CEE36 /* PaymentSettingsController.swift */,
+				1C9E24921B8006EE007CEE36 /* OrderHistoryViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -368,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C9E248D1B7FBF4F007CEE36 /* BasicInfoController.swift in Sources */,
 				1CF26DA41B7916DA00E0676F /* CategoryPickerViewController.swift in Sources */,
 				1C4FD0A61B573B9C00A0A121 /* SellerCell.swift in Sources */,
 				1C784DB41B4C614B0054CB9B /* ItemCollectionViewCell.swift in Sources */,
@@ -381,6 +394,8 @@
 				1CF26DAA1B79728A00E0676F /* SubcategoryPickerViewController.swift in Sources */,
 				1CDF1F1E1B582F7800A03709 /* CartItemCell.swift in Sources */,
 				1C4F95981B61B7ED00314E2A /* AddListingTableViewController.swift in Sources */,
+				1C9E248F1B7FC671007CEE36 /* AddressPhoneNumController.swift in Sources */,
+				1C9E24911B7FFB38007CEE36 /* PaymentSettingsController.swift in Sources */,
 				1C3307721B46E6B100224322 /* AppDelegate.swift in Sources */,
 				1C784D751B4AF1690054CB9B /* BuyViewController.swift in Sources */,
 				1CF26DB41B7A9B6E00E0676F /* PropertyPickerController.swift in Sources */,
@@ -389,6 +404,7 @@
 				1C90279E1B4ED57B0039E390 /* Item.swift in Sources */,
 				1CDF1F1A1B581E4B00A03709 /* Cart.swift in Sources */,
 				1CDF1F181B581E2400A03709 /* CartViewController.swift in Sources */,
+				1C9E24931B8006EE007CEE36 /* OrderHistoryViewController.swift in Sources */,
 				1C9027A21B4F71BD0039E390 /* ItemTableViewCell.swift in Sources */,
 				1C407E271B5DDC9D00991F58 /* HTTPHelper.swift in Sources */,
 				1CCD0C731B54984900821C30 /* ItemDetailCell.swift in Sources */,
