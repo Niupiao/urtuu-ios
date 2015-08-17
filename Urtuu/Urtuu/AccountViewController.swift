@@ -61,6 +61,5 @@ class AccountViewController: UITableViewController {
         actionController.addAction(logoutAction)
         actionController.addAction(cancelAction)
         presentViewController(actionController, animated: true, completion: nil)
-        
     }
 }

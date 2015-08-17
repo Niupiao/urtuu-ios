@@ -57,6 +57,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     if let email = resultDict!["email"] {
                         if let fbId = resultDict!["id"] {
                             self.userEmail = email
+                            let userDefaults = NSUserDefaults.standardUserDefaults()
+                            
                             self.loginRequest(email, fbId: fbId)
                         }
                     }
@@ -73,7 +75,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         defaults.synchronize()
     }
     
-    // MARK: - Urtu servers navigation
+    // MARK: - Urtu servers communication
     
     func loginRequest(email: String, fbId: String){
         let httpRequest = httpHelper.buildLoginRequest(email, fbId: fbId)
@@ -129,12 +131,15 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func updateUserDefaultsToLoggedIn(){
         let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(userEmail!, forKey: "UserEmail")
         userDefaults.setObject(Constants.userLoggedInValueOK, forKey: Constants.userLoggedInKey)
         userDefaults.synchronize()
     }
     
     func updateCurrentUser(data: NSDictionary){
         currentUser = User.CurrentUser
+        currentUser.email = userEmail!
+        currentUser.fbId = FBSDKProfile.currentProfile().userID
         if let fName = data["first_name"] as? String {
             currentUser.first_name = fName
         }

@@ -33,6 +33,9 @@ class User {
     var phone_number: String!
     var profilePicture: UIImage? = nil
     var pastPurchases: [Item]!
+    var email: String? = nil
+    
+    var orderHistory: NSArray? = nil
     
     init() {
         bank_account = "XXXXXXXXXXXXXXXX"
@@ -42,8 +45,14 @@ class User {
         name = "Elon Musk"
         address = "77 Main Street, North Adams, MA, 01247"
         payment = PaymentSettings.Debit
-        fbId = "0"
+        if let token = FBSDKAccessToken.currentAccessToken() {
+            self.fbId = token.userID
+        }
         phone_number = "(112) 358-1321"
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if let email = userDefaults.objectForKey("UserEmail") as? String {
+            self.email = email
+        }
     }
     
     required init(first_name: String!, middle_name:String!, last_name: String!, address: String!){

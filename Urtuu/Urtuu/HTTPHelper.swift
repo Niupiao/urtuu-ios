@@ -40,6 +40,20 @@ struct HTTPHelper {
         return signUpRequest
     }
     
+    func buildOrderHistoryRequest(email: String, fbId: String) -> NSMutableURLRequest {
+        var orderHistoryURL: NSURL!
+        var orderHistoryRequest: NSMutableURLRequest!
+        
+        // order history endpoint
+        orderHistoryURL = NSURL(string: "\(HTTPHelper.URTU_BASE_URL)/purchasereceipts?email=\(email)&facebook_id=\(fbId)")
+        orderHistoryRequest = NSMutableURLRequest(URL: orderHistoryURL)
+        
+        // request method
+        orderHistoryRequest.HTTPMethod = "GET"
+        
+        return orderHistoryRequest
+    }
+    
     func sendRequest(request: NSURLRequest, completion: (NSData!, NSError!) -> Void) -> () {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data: NSData!, response: NSURLResponse!, error: NSError!) in
