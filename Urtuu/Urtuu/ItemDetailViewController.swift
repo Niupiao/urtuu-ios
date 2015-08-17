@@ -228,7 +228,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
         } else {
             let cell = sellerCell.dequeueReusableCellWithIdentifier(sellerCellIdentifier) as! SellerCell
             
-            cell.sellerName = itemSelected.seller.first_name
+            cell.sellerName = itemSelected.seller.name!
             if let picture = itemSelected.seller.profilePicture{
                 cell.profilePic = picture
             }

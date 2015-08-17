@@ -25,12 +25,13 @@ class AccountViewController: UITableViewController {
         if welcomeLabelString.length > 13 {
             println("Name here")
         } else {
-            let welcomeString = "Welcome back, \(currentUser.first_name)."
-            let welcomeAttributedString = NSMutableAttributedString(string: welcomeString)
-            let firstName = currentUser.first_name
-            let nameRange = (welcomeString as NSString).rangeOfString(firstName + ".")
-            welcomeAttributedString.setAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(welcomeLabel.font.pointSize)], range: nameRange)
-            welcomeLabel.attributedText = welcomeAttributedString
+            if let fName = currentUser.first_name {
+                let welcomeString = "Welcome back, \(fName)."
+                let welcomeAttributedString = NSMutableAttributedString(string: welcomeString)
+                let nameRange = (welcomeString as NSString).rangeOfString(fName + ".")
+                welcomeAttributedString.setAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(welcomeLabel.font.pointSize)], range: nameRange)
+                welcomeLabel.attributedText = welcomeAttributedString
+            }
         }
     }
 

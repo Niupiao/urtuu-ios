@@ -40,6 +40,7 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.hidden = collectionViewHidden
+        // how to add search bar to top of collection view?
         
         tableView.dataSource = self
         tableView.delegate = self

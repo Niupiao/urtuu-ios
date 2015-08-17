@@ -111,8 +111,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     self.showLoginErrorAlert()
                 }
             } else {
-                self.updateUserDefaultsToLoggedIn()
                 self.updateCurrentUser(response)
+                self.updateUserDefaultsToLoggedIn()
                 if let delegate = self.delegate {
                     delegate.didLoginWithSuccess(self)
                 }
@@ -132,6 +132,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func updateUserDefaultsToLoggedIn(){
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setObject(userEmail!, forKey: "UserEmail")
+        userDefaults.setObject(currentUser.first_name!, forKey: "UserFName")
+        userDefaults.setObject(currentUser.last_name!, forKey: "UserLName")
         userDefaults.setObject(Constants.userLoggedInValueOK, forKey: Constants.userLoggedInKey)
         userDefaults.synchronize()
     }

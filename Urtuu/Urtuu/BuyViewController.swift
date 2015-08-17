@@ -12,16 +12,32 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
     
     var containerView: UIView!
     var collapsedInfo : [Bool] = [false, false, false]
+    var subCats: [[String]]? = nil
+    var beautyCats: [String]? = nil
+    var babyCats: [String]? = nil
     
+    let categories = Constants.categories
     let navCellIdentifier = "navigationCell"
     let images = [UIImage(named: "makeup.png"), UIImage(named: "baby.png"), UIImage(named: "recommend.png")]
     
-    let cats = ["makeup","baby","recommended"]
-    let subCats = [["All Makeup","Eyeliner","Foundation","Lipstick"],["All Baby Products", "Baby Lotion","Clothes", "Socks","Diapers"],["Test1","Test2","Test3"]]
+    let cats = ["Beauty Products","Baby Products","Recommended"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        // setting up subcats array
+        beautyCats = []
+        subCats = []
+        babyCats = []
+        for i in 0..<6 {
+            beautyCats?.append(categories[i]["category"] as! String)
+        }
+        subCats?.append(beautyCats!)
+        for i in 6...12 {
+            babyCats?.append(categories[i]["category"] as! String)
+        }
+        subCats?.append(babyCats!)
+        subCats?.append(["Test1","Test2","Test3"])
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -96,7 +112,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if collapsedInfo[section] {
-            return subCats[section].count
+            return subCats![section].count
         }
         return 0
     }
@@ -105,7 +121,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(navCellIdentifier, forIndexPath: indexPath) as! NavigationTableViewCell
         
         if(collapsedInfo[indexPath.section]){
-            cell.navigationLabel.text = subCats[indexPath.section][indexPath.row]
+            cell.navigationLabel.text = subCats![indexPath.section][indexPath.row]
         }
         
         return cell

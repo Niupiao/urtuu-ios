@@ -23,10 +23,10 @@ class User {
     
     private(set) var bank_account: String!
     private(set) var debit_card: String!
-    var first_name: String!
+    var first_name: String? = nil
     var middle_name: String!
-    var last_name: String!
-    var name: String!
+    var last_name: String? = nil
+    var name: String? = nil
     var address: String!
     var payment: PaymentSettings!
     var fbId: String!
@@ -40,7 +40,6 @@ class User {
     init() {
         bank_account = "XXXXXXXXXXXXXXXX"
         debit_card = "XXXXXXXXXXXXXXXX"
-        first_name = "Elon"
         last_name = "Musk"
         name = "Elon Musk"
         address = "77 Main Street, North Adams, MA, 01247"
@@ -53,6 +52,17 @@ class User {
         if let email = userDefaults.objectForKey("UserEmail") as? String {
             self.email = email
         }
+        if let fName = userDefaults.objectForKey("UserFName") as? String {
+            first_name = fName
+        } else if FBSDKAccessToken.currentAccessToken() != nil {
+            first_name = FBSDKProfile.currentProfile().firstName
+        }
+        if let lName = userDefaults.objectForKey("UserLName") as? String {
+            last_name = lName
+        } else if FBSDKAccessToken.currentAccessToken() != nil {
+            last_name = FBSDKProfile.currentProfile().lastName
+        }
+        name = first_name! + " " + last_name!
     }
     
     required init(first_name: String!, middle_name:String!, last_name: String!, address: String!){
