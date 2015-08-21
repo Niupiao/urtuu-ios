@@ -66,6 +66,31 @@ struct HTTPHelper {
         return itemsRequest
     }
     
+    func buildSellRequest(email: String, fbId: String, itemName: String, price: Double, quantity: Int, description: String?, subcategory: String, size: String?, volume: String?, count: String?) -> NSMutableURLRequest {
+        var sellRequestURL: NSURL!
+        var sellRequest: NSMutableURLRequest!
+        
+        var sellURLString = "\(HTTPHelper.URTU_BASE_URL)/sell?email=\(email)&facebook_id=\(fbId)&name=\(itemName)&price=\(price)&quantity=\(quantity)&description=\(description != nil ? description! : String())&subcategory=\(subcategory)"
+        
+        if size != nil {
+            sellURLString += "&size=\(size!)"
+        }
+        
+        if volume != nil {
+            sellURLString += "&volume=\(volume!)"
+        }
+        if count != nil {
+            sellURLString += "&count=\(count!)"
+        }
+        
+        sellRequestURL = NSURL(string: sellURLString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
+        sellRequest = NSMutableURLRequest(URL: sellRequestURL)
+        
+        sellRequest.HTTPMethod = "GET"
+        
+        return sellRequest
+    }
+    
     func sendRequest(request: NSURLRequest, completion: (NSData!, NSError!) -> Void) -> () {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data: NSData!, response: NSURLResponse!, error: NSError!) in

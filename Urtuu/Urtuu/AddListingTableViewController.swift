@@ -212,7 +212,7 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
             presentViewController(alertController, animated: true, completion: nil)
             return
         }
-        if sizeRequired {
+        /*if sizeRequired {
             if newListing.size == nil {
                 let alertController = UIAlertController(title: "Missing information", message: "You're missing item size", preferredStyle: .Alert)
                 alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
@@ -235,7 +235,7 @@ class AddListingTableViewController: UITableViewController, UITextViewDelegate, 
                 presentViewController(alertController, animated: true, completion: nil)
                 return
             }
-        }
+        }*/
         if newListing.itemSubcategory == nil {
             let alertController = UIAlertController(title: "Missing information", message: "You're missing item subcategory", preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))

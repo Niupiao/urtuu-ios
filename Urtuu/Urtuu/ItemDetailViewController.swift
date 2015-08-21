@@ -28,7 +28,7 @@ class ItemDetailViewController: UIViewController, UIScrollViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descriptionLabel.text = itemSelected.description.capitalizedString
+        descriptionLabel.text = itemSelected.description!.capitalizedString
         
         //creating scrollview
         scrollView = UIScrollView(frame: view.bounds)

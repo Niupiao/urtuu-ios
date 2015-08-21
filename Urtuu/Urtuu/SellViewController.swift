@@ -17,6 +17,8 @@ class SellViewController: UIViewController, UICollectionViewDataSource, UICollec
     var listingCellIdentifier = "ListingCell"
     var collectionViewHidden = true
     
+    let httpHelper = HTTPHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -90,6 +92,25 @@ class SellViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func didPressAdd(addView: AddListingTableViewController, newListing listing: Listing) {
         listings.myListings.append(listing)
+        let currentUser = User.CurrentUser
+        let email = currentUser.email
+        let fbId = currentUser.fbId
+        addListingRequest(email!, fbId: fbId, newListing: listing)
         addView.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - Urtu servers communication
+    
+    func addListingRequest(email: String, fbId: String, newListing: Listing){
+        let httpRequest = httpHelper.buildSellRequest(email, fbId: fbId, itemName: newListing.name, price: newListing.price, quantity: newListing.quantity, description: newListing.description!, subcategory: newListing.itemSubcategory!, size: newListing.size, volume: newListing.volume, count: newListing.count)
+        httpHelper.sendRequest(httpRequest, completion: {(data:NSData!, error:NSError!) in
+            if error != nil {
+                // error biatches
+            }
+            
+            var error: NSError?
+            let response = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &error) as! NSDictionary
+            println()
+        })
     }
 }

@@ -62,7 +62,6 @@
 			<array>
 				<string>Styling Products and Tools</string>
 				<string>Shampoo and Conditioner</string>
-				<string>Hair Accessories</string>
 			</array>
 		</dict>
 		<dict>
@@ -72,7 +71,7 @@
 			<array>
 				<string>Boys Clothing</string>
 				<string>Girls Clothing</string>
-				<string>Baby and Toddler Clothing Accessories</string>
+				<string>Accessories</string>
 				<string>Underwear and Socks</string>
 			</array>
 		</dict>
@@ -95,7 +94,6 @@
 			<array>
 				<string>Diaper Accessories</string>
 				<string>Diapers</string>
-				<string>Potty Seats and Step Stools</string>
 			</array>
 		</dict>
 		<dict>
@@ -119,6 +117,7 @@
 				<string>Travel Sets</string>
 				<string>Strollers</string>
 				<string>Booster Feeding Seats</string>
+				<string>Potty Seats and Step Tools</string>
 			</array>
 		</dict>
 		<dict>
@@ -127,10 +126,10 @@
 			<key>subcategories</key>
 			<array>
 				<string>Bikes</string>
-				<string>Speeing Toys</string>
+				<string>Sleeping Toys</string>
 				<string>Gyms and Playmats</string>
 				<string>Learning Toys</string>
-				<string>Miscellaneous Toys</string>
+				<string>Toys</string>
 			</array>
 		</dict>
 		<dict>
@@ -141,7 +140,7 @@
 				<string>Gates</string>
 				<string>Baby Monitors</string>
 				<string>Baby Proofing</string>
-				<string>Grooming and Healthcare essentials</string>
+				<string>Grooming, Healthcare, &amp; Skincare Essentials</string>
 			</array>
 		</dict>
 	</array>

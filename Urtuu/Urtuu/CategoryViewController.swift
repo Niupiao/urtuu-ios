@@ -26,12 +26,19 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     var items: Array<Item>!
     var collectionViewHidden: Bool = false
     var category: String!
+    var refresh: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         itemsList = ItemsList.itemsList
         items = itemsList.itemsArray
+        
+        // setting up refresh control
+        self.refresh = UIRefreshControl()
+        self.refresh.attributedTitle = NSAttributedString(string: "Pull down to refresh")
+        self.refresh.addTarget(self, action: "refreshCollectionView", forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView.addSubview(refresh)
         
         currentUser = User.CurrentUser
         
@@ -115,6 +122,16 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
             collectionView.hidden = collectionViewHidden
             tableView.hidden = !collectionViewHidden
             collectionView.reloadData()
+        }
+    }
+    
+    func refreshCollectionView(){
+        if let email = currentUser.email {
+            if let fbId = currentUser.fbId {
+                requestItems(email, fbId: fbId, pageSize: "50", page: "1")
+                collectionView.reloadData()
+                self.refresh.endRefreshing()
+            }
         }
     }
     

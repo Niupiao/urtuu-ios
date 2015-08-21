@@ -46,58 +46,195 @@
 		<key>volume</key>
 		<dict>
 			<key>Cleanse</key>
-			<array/>
+			<array>
+				<string>25 ml</string>
+				<string>50 ml</string>
+				<string>100ml</string>
+				<string>150ml</string>
+				<string>175 ml</string>
+			</array>
 			<key>Moisturize</key>
-			<array/>
+			<array>
+				<string>50 ml</string>
+				<string>100 ml</string>
+				<string>150 ml</string>
+				<string>200 ml</string>
+			</array>
 			<key>Treatments</key>
-			<array/>
+			<array>
+				<string>100 ml</string>
+				<string>200 ml</string>
+			</array>
 			<key>Men&apos;s Fragrance</key>
-			<array/>
+			<array>
+				<string>50 ml</string>
+				<string>100 ml</string>
+				<string>150 ml</string>
+				<string>200 ml</string>
+			</array>
 			<key>Women&apos;s Fragrance</key>
-			<array/>
+			<array>
+				<string>50 ml</string>
+				<string>100 ml</string>
+				<string>150 ml</string>
+				<string>200 ml</string>
+			</array>
 			<key>Lotions and Creams</key>
-			<array/>
+			<array>
+				<string>100 ml</string>
+				<string>200 ml</string>
+				<string>300 ml</string>
+			</array>
 			<key>Shower and Bath</key>
-			<array/>
+			<array>
+				<string>500 ml</string>
+				<string>750 ml</string>
+			</array>
 			<key>Suncare</key>
-			<array/>
+			<array>
+				<string>500 ml</string>
+				<string>750 ml</string>
+			</array>
 			<key>Nail Polish</key>
-			<array/>
+			<array>
+				<string>100 ml</string>
+				<string>200 ml</string>
+			</array>
 			<key>Special Effects</key>
-			<array/>
+			<array>
+				<string>100 ml</string>
+				<string>125 ml</string>
+				<string>150 ml</string>
+			</array>
 			<key>Beverages</key>
-			<array/>
+			<array>
+				<string>750 ml</string>
+				<string>1 L</string>
+			</array>
 			<key>Food</key>
-			<array/>
+			<array>
+				<string>750 ml</string>
+				<string>1 L</string>
+			</array>
 			<key>Baby Formula</key>
-			<array/>
+			<array>
+				<string>750 ml</string>
+				<string>1.5 L</string>
+			</array>
 			<key>Face Makeup</key>
-			<array/>
+			<array>
+				<string>100 ml</string>
+				<string>150 ml</string>
+				<string>250 ml</string>
+			</array>
 			<key>Shampoo and Conditioner</key>
-			<array/>
+			<array>
+				<string>750 ml</string>
+				<string>1 L</string>
+			</array>
 		</dict>
 		<key>count</key>
 		<dict>
 			<key>Treatments</key>
-			<array/>
+			<array>
+				<string>1</string>
+				<string>2</string>
+				<string>3</string>
+				<string>4</string>
+				<string>5</string>
+				<string>6</string>
+				<string>7</string>
+				<string>8</string>
+				<string>9</string>
+				<string>10</string>
+			</array>
 			<key>Special Effects</key>
-			<array/>
+			<array>
+				<string>1</string>
+				<string>2</string>
+				<string>3</string>
+				<string>4</string>
+				<string>5</string>
+				<string>6</string>
+				<string>7</string>
+				<string>8</string>
+				<string>9</string>
+				<string>10</string>
+			</array>
 			<key>Hair Accessories</key>
-			<array/>
-			<key>Baby and Toddler Clothing Accessories</key>
-			<array/>
+			<array>
+				<string>5</string>
+				<string>10</string>
+				<string>15</string>
+				<string>20</string>
+			</array>
+			<key>Accessories</key>
+			<array>
+				<string>5</string>
+				<string>10</string>
+				<string>20</string>
+			</array>
 			<key>Beverages</key>
-			<array/>
+			<array>
+				<string>6</string>
+				<string>12</string>
+				<string>18</string>
+				<string>24</string>
+			</array>
 			<key>Food</key>
-			<array/>
+			<array>
+				<string>5</string>
+				<string>10</string>
+			</array>
 			<key>Baby Formula</key>
-			<array/>
+			<array>
+				<string>1</string>
+				<string>4</string>
+				<string>8</string>
+				<string>12</string>
+			</array>
 			<key>Feeding Accessories</key>
-			<array/>
+			<array>
+				<string>1</string>
+				<string>2</string>
+				<string>3</string>
+				<string>4</string>
+				<string>5</string>
+				<string>6</string>
+				<string>7</string>
+				<string>8</string>
+				<string>9</string>
+				<string>10</string>
+			</array>
 			<key>Diapers</key>
-			<array/>
+			<array>
+				<string>6</string>
+				<string>12</string>
+				<string>18</string>
+				<string>24</string>
+			</array>
+			<key>Diaper Accessories</key>
+			<array>
+				<string>1</string>
+				<string>2</string>
+				<string>3</string>
+				<string>4</string>
+				<string>5</string>
+				<string>6</string>
+				<string>7</string>
+				<string>8</string>
+				<string>9</string>
+				<string>10</string>
+			</array>
 			<key>Underwear and Socks</key>
-			<array/>
+			<array>
+				<string>2</string>
+				<string>4</string>
+				<string>6</string>
+				<string>8</string>
+				<string>10</string>
+				<string>12</string>
+			</array>
 		</dict>
 		<key>age</key>
 		<dict>
