@@ -141,6 +141,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
             
             let catVC = segue.destinationViewController as! CategoryViewController
             catVC.title = title
+            catVC.category = title
         }
     }
 }

@@ -54,6 +54,18 @@ struct HTTPHelper {
         return orderHistoryRequest
     }
     
+    func buildItemsRequest(email: String, fbId: String, pageSize: String, pageNumber: String) -> NSMutableURLRequest {
+        var itemsRequestURL: NSURL!
+        var itemsRequest: NSMutableURLRequest!
+        
+        itemsRequestURL = NSURL(string: "\(HTTPHelper.URTU_BASE_URL)/items?email=\(email)&facebook_id=\(fbId)&page_size=\(pageSize)&page=\(pageNumber)&order=id&direction=ASC")!
+        itemsRequest = NSMutableURLRequest(URL: itemsRequestURL)
+        
+        itemsRequest.HTTPMethod = "GET"
+        
+        return itemsRequest
+    }
+    
     func sendRequest(request: NSURLRequest, completion: (NSData!, NSError!) -> Void) -> () {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data: NSData!, response: NSURLResponse!, error: NSError!) in
@@ -80,6 +92,22 @@ struct HTTPHelper {
         }
         //start task
         task.resume()
+    }
+    
+    func parseItemsJsonArray(object: AnyObject, category: String) -> Array<Item> {
+        var itemsList: Array<Item> = []
+        
+        if object is Array<AnyObject> {
+            for json in object as! Array<AnyObject> {
+                var item: Item = Item()
+                item.id = (json["id"] as AnyObject? as? Int) ?? 0
+                item.name = (json["name"] as AnyObject? as? String) ?? ""
+                item.price = (json["price"] as AnyObject? as? Double) ?? 0.0
+                item.quantity = (json["quantity"] as AnyObject? as? Int) ?? 0
+                itemsList.append(item)
+            }
+        }
+        return itemsList
     }
     
 }
