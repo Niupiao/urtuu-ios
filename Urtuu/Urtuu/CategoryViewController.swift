@@ -19,27 +19,31 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     
     let itemCollectionCellIdentifier = "itemCollectionCell"
     let itemTableCellIdentifier = "itemTableCell"
+    let httpHelper = HTTPHelper()
     
+    var currentUser: User!
     var itemsList: ItemsList!
     var items: Array<Item>!
     var collectionViewHidden: Bool = false
+    var category: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         itemsList = ItemsList.itemsList
-        
         items = itemsList.itemsArray
         
-        for i in 1...5 {
-            let item = Item()
-            item.price = Double(i)*29.49
-            items.append(item)
+        currentUser = User.CurrentUser
+        
+        if let email = currentUser.email {
+            let fbId = currentUser.fbId
+            requestItems(email, fbId: fbId, pageSize: "10", page: "1")
         }
         
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.hidden = collectionViewHidden
+        // how to add search bar to top of collection view?
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -197,6 +201,25 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
             detailVC.itemSelected = items[indexPath.row]
             detailVC.title = items[indexPath.row].name
         }
+    }
+    
+    // MARK: - Urtu Servers Communication
+    // This should be moved to BuyViewController. If you can't get items per category, then it may be better to get all items in BuyViewController
+    // and then go through and sort per category.
+    
+    func requestItems(email: String, fbId: String, pageSize: String, page: String) {
+        let httpRequest = httpHelper.buildItemsRequest(email, fbId: fbId, pageSize: pageSize, pageNumber: page)
+        httpHelper.sendRequest(httpRequest, completion: { (data: NSData!, error: NSError!) in
+            if error != nil {
+                // error, shits
+            }
+            
+            var error: NSError?
+            let response = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &error) as! NSArray
+            self.itemsList.itemsArray = self.httpHelper.parseItemsJsonArray(response, category: self.category)
+            self.items = self.itemsList.itemsArray
+            self.collectionView.reloadData()
+        })
     }
 }
 

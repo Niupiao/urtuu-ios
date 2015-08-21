@@ -38,7 +38,7 @@ class CartItemCell: UITableViewCell {
             return User()
         }
         set(newSeller){
-            itemSellerLabel.text = newSeller.name
+            itemSellerLabel.text = newSeller.first_name
         }
     }
     
