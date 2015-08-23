@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         } else {
             if result.grantedPermissions.contains("email") {
                 loginWithFB = true
-                
+                // requesting email from facebook
                 let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email"])
                 graphRequest.startWithCompletionHandler({(connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError!) in
                     let resultDict = result as? NSDictionary as? [String: String]

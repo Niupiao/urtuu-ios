@@ -29,6 +29,7 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
         beautyCats = []
         subCats = []
         babyCats = []
+        // this is a hack, property lists for categories need to be improved.
         for i in 0..<6 {
             beautyCats?.append(categories[i]["category"] as! String)
         }
@@ -95,9 +96,6 @@ class BuyViewController: UITableViewController, UITableViewDataSource {
     }
     
     func sectionHeaderTapped(recognizer: UITapGestureRecognizer){
-        
-        //println("tap works")
-        
         var indexPath : NSIndexPath = NSIndexPath(forRow: 0, inSection:(recognizer.view?.tag as Int!)!)
         if indexPath.row == 0 {
             var collapsed = collapsedInfo[indexPath.section]

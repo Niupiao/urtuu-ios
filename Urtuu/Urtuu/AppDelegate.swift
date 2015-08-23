@@ -79,7 +79,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginViewControllerDelega
         let mainTabVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController() as! UITabBarController
         self.window?.rootViewController = mainTabVC
     }
-
-
 }
 

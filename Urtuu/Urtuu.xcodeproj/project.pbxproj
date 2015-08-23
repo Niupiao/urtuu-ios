@@ -214,11 +214,11 @@
 				1C4FD0A41B573B9C00A0A121 /* SellerCell.swift */,
 				1C4FD0A51B573B9C00A0A121 /* SellerCell.xib */,
 				1CDF1F1D1B582F7800A03709 /* CartItemCell.swift */,
-				1C89FC641B597438003C5BCC /* Urtuu-Bridging-Header.h */,
 				1CF4E1EA1B5D710C00CAC2F3 /* ListingCollectionViewCell.swift */,
 				1CF26DA51B793A2900E0676F /* CategoryCell.swift */,
 				1CF26DAB1B7973C700E0676F /* SubcategoryCell.swift */,
 				1CF26DB51B7A9D0E00E0676F /* PropertyCell.swift */,
+				1C89FC641B597438003C5BCC /* Urtuu-Bridging-Header.h */,
 			);
 			name = Views;
 			sourceTree = "<group>";

@@ -165,8 +165,6 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         var height: CGFloat!
         height = collectionView.frame.height > 323.0 ? collectionView.frame.height / 2.1 : collectionView.frame.height / 1.5
         
-        //println(collectionView.frame.height)
-        
         return CGSizeMake(width, height)
     }
     
